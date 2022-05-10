@@ -1,4 +1,4 @@
-package org.mysql.manager;
+package mysql.manager;
 
 public interface PersonManager {
 }

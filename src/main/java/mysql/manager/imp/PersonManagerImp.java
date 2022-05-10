@@ -1,4 +1,4 @@
-package org.mysql.manager.imp;
+package mysql.manager.imp;
 
 public class PersonManagerImp {
 }

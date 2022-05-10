@@ -1,4 +1,4 @@
-package org.mysql;
+package mysql;
 
 public class MySQLConstants {
     public static final String PASSWD = "jdbc.mysql.passwd";

@@ -1,3 +1,8 @@
-C:\Users\ismaelor\IdeaProjects\ProyectoSQLMurderDUAL\src\main\java\org\login\App.java
-C:\Users\ismaelor\IdeaProjects\ProyectoSQLMurderDUAL\src\main\java\org\login\controller\TutorialController.java
-C:\Users\ismaelor\IdeaProjects\ProyectoSQLMurderDUAL\src\main\java\module-info.java
+C:\Users\pablo\IdeaProjects\ProyectoSQLMurderDUAL\src\main\java\org\mysql\MySQLConnector.java
+C:\Users\pablo\IdeaProjects\ProyectoSQLMurderDUAL\src\main\java\org\mysql\manager\PersonManager.java
+C:\Users\pablo\IdeaProjects\ProyectoSQLMurderDUAL\src\main\java\org\login\controller\TutorialController.java
+C:\Users\pablo\IdeaProjects\ProyectoSQLMurderDUAL\src\main\java\org\mysql\manager\imp\PersonManagerImp.java
+C:\Users\pablo\IdeaProjects\ProyectoSQLMurderDUAL\src\main\java\module-info.java
+C:\Users\pablo\IdeaProjects\ProyectoSQLMurderDUAL\src\main\java\org\login\App.java
+C:\Users\pablo\IdeaProjects\ProyectoSQLMurderDUAL\src\main\java\org\mysql\dao\Person.java
+C:\Users\pablo\IdeaProjects\ProyectoSQLMurderDUAL\src\main\java\org\mysql\MySQLConstants.java

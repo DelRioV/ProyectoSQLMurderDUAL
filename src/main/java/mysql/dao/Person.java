@@ -1,4 +1,4 @@
-package org.mysql.dao;
+package mysql.dao;
 
 public class Person {
 }

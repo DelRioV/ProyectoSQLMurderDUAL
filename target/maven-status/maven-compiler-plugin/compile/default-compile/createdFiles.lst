@@ -1,3 +1,8 @@
-org\login\controller\TutorialController.class
+org\mysql\manager\PersonManager.class
+org\mysql\dao\Person.class
+org\mysql\manager\imp\PersonManagerImp.class
 module-info.class
+org\mysql\MySQLConstants.class
 org\login\App.class
+org\login\controller\TutorialController.class
+org\mysql\MySQLConnector.class

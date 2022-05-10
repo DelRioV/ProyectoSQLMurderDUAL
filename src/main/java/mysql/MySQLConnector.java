@@ -1,18 +1,17 @@
-package org.mysql;
+package mysql;
 
-import lombok.Getter;
-import lombok.Setter;
+
 
 import java.io.IOException;
 import java.sql.*;
 import java.util.Properties;
 public class MySQLConnector {
-    @Setter
-    @Getter
+
     Properties prop = new Properties();
 
     public MySQLConnector(){
         try{
+            System.out.println(getClass().getClassLoader().getResourceAsStream(("config.properties")));
             prop.load(getClass().getClassLoader().getResourceAsStream(("config.properties")));
         }
         catch(IOException ex){
