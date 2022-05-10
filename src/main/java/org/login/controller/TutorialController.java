@@ -21,7 +21,6 @@ import java.util.ResourceBundle;
 
 public class TutorialController implements Initializable {
 
-    private Connection con ;
 
     @FXML
     private Button tutorialButton_1;
@@ -66,7 +65,6 @@ public class TutorialController implements Initializable {
     @FXML
     public void changeLabelText(Event event) throws SQLException, ClassNotFoundException {
         Connection con = new MySQLConnector().getMySQLConnection();
-
         if(event.getSource()==previousButton){
            editableLabel.setText(new ModelInfoManagerImp().changeTip(con,1));
         }
