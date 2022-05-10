@@ -1,16 +1,15 @@
-package org.login;
+package org.login.app.tutorialwindow;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 /**
- * JavaFX org.login.App
+ * JavaFX org.login.app.tutorialwindow.App
  */
 public class App extends Application {
 

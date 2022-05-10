@@ -1,11 +1,16 @@
-package mysql;
+package org.login.app.mysql;
 
 
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.IOException;
 import java.sql.*;
 import java.util.Properties;
+
 public class MySQLConnector {
+    @Getter
+    @Setter
 
     Properties prop = new Properties();
 
@@ -44,7 +49,7 @@ public class MySQLConnector {
      * @return an URL
      */
     private String getURL() {
-        //jdbc:mysql://localhost:3306/world?user=sa&password=12345678&useSSL=false;
+        //jdbc:org.login.app.mysql://localhost:3306/world?user=sa&password=12345678&useSSL=false;
         return new StringBuilder().append(prop.getProperty(MySQLConstants.URL_PREFIX))
                 .append(prop.getProperty(MySQLConstants.URL_HOST)).append(":")
                 .append(prop.getProperty(MySQLConstants.URL_PORT)).append("/")

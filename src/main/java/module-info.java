@@ -1,11 +1,12 @@
-module org {
+module org.login.app {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.desktop;
     requires java.sql;
+    requires static lombok;
 
-    exports org.login;
-    opens org.login to javafx.fxml;
-    exports org.login.controller;
-    opens org.login.controller to javafx.fxml;
+    exports org.login.app.tutorialwindow;
+    exports org.login.app.tutorialwindow.controller;
+    opens org.login.app.tutorialwindow.controller to javafx.fxml;
+    opens org.login.app.tutorialwindow to javafx.fxml;
 }

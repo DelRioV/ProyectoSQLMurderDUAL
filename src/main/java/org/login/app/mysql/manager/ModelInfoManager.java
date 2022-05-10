@@ -1,4 +1,4 @@
-package mysql.manager;
+package org.login.app.mysql.manager;
 
 import java.sql.Connection;
 import java.sql.SQLException;

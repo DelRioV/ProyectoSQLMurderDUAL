@@ -1,7 +1,6 @@
-package mysql.manager.imp;
+package org.login.app.mysql.manager.imp;
 
-import mysql.MySQLConnector;
-import mysql.manager.ModelInfoManager;
+import org.login.app.mysql.manager.ModelInfoManager;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

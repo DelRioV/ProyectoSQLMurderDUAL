@@ -1,13 +1,13 @@
-package org.login.controller;
+package org.login.app.tutorialwindow.controller;
 
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import mysql.MySQLConnector;
-import mysql.manager.imp.ModelInfoManagerImp;
-import org.login.App;
+import org.login.app.mysql.MySQLConnector;
+import org.login.app.mysql.manager.imp.ModelInfoManagerImp;
+import org.login.app.tutorialwindow.App;
 
 import java.io.IOException;
 import java.net.URI;
