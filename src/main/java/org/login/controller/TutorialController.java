@@ -21,7 +21,7 @@ public class TutorialController implements Initializable {
     @FXML
     private Button sqlTutorial;
 
-    private int counter=1;
+    private int counter = 1;
 
     @FXML
     public void switchWindow() throws IOException {
