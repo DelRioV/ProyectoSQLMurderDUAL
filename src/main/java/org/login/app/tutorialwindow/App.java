@@ -17,9 +17,9 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("originTutorialWindow"));
+        scene = new Scene(loadFXML("MainWindow"));
         stage.setScene(scene);
-        stage.setTitle("Tutorial");
+        //stage.setTitle("Tutorial");
         stage.show();
     }
 
@@ -29,7 +29,7 @@ public class App extends Application {
 
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
-        System.out.println(App.class.getResource("originTutorialWindow.fxml"));
+        System.out.println(App.class.getResource("MainWindow.fxml"));
         return fxmlLoader.load();
     }
 
