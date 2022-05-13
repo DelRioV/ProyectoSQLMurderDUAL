@@ -7,7 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import org.login.app.mysql.MySQLConnector;
 import org.login.app.mysql.manager.imp.ModelInfoManagerImp;
-import org.login.app.tutorialwindow.App;
+import org.login.app.loginwindow.App;
 
 import java.io.IOException;
 import java.net.URI;

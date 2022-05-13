@@ -1,4 +1,4 @@
-package org.login.app.tutorialwindow;
+package org.login.app.loginwindow;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 /**
- * JavaFX org.login.app.tutorialwindow.App
+ * JavaFX org.login.app.loginwindow.App
  */
 public class App extends Application {
 
@@ -17,7 +17,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("MainWindow"));
+        scene = new Scene(loadFXML("LoginWindow"));
         stage.setScene(scene);
         //stage.setTitle("Tutorial");
         stage.show();

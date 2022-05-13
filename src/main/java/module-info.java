@@ -5,8 +5,8 @@ module org.login.app {
     requires java.sql;
     requires static lombok;
 
-    exports org.login.app.tutorialwindow;
-    exports org.login.app.tutorialwindow.controller;
-    opens org.login.app.tutorialwindow.controller to javafx.fxml;
-    opens org.login.app.tutorialwindow to javafx.fxml;
+
+    opens org.login.app.loginwindow.controller to javafx.fxml;
+    opens org.login.app.loginwindow to javafx.fxml;
+    exports org.login.app.loginwindow;
 }

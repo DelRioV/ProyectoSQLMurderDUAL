@@ -4,7 +4,7 @@ import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import org.login.app.tutorialwindow.App;
+import org.login.app.loginwindow.App;
 
 import java.io.IOException;
 import java.net.URL;
