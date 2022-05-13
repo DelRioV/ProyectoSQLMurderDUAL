@@ -6,7 +6,8 @@ module org.login.app {
     requires static lombok;
 
 
+    exports org.login.app;
+    opens org.login.app to javafx.fxml;
     opens org.login.app.loginwindow.controller to javafx.fxml;
-    opens org.login.app.loginwindow to javafx.fxml;
-    exports org.login.app.loginwindow;
+
 }

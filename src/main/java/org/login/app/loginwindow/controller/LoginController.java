@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import org.login.app.loginwindow.App;
+import org.login.app.App;
 
 import java.io.IOException;
 import java.sql.SQLException;

@@ -1,4 +1,4 @@
-package org.login.app.loginwindow;
+package org.login.app;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 /**
- * JavaFX org.login.app.loginwindow.App
+ * JavaFX org.login.app.App
  */
 public class App extends Application {
 
@@ -17,7 +17,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("LoginWindow"));
+        scene = new Scene(loadFXML("org.login.app.loginwindow/LoginWindow"));
         stage.setScene(scene);
         //stage.setTitle("Tutorial");
         stage.show();
@@ -28,8 +28,8 @@ public class App extends Application {
     }
 
     private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
-        System.out.println(App.class.getResource("MainWindow.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml+".fxml"));
+        System.out.println(App.class.getResource("org.login.app.loginwindow/LoginWindow.fxml"));
         return fxmlLoader.load();
     }
 
