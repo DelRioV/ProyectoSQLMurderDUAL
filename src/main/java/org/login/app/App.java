@@ -29,7 +29,7 @@ public class App extends Application {
 
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml+".fxml"));
-        System.out.println(App.class.getResource("org.login.app.loginwindow/LoginWindow.fxml"));
+        System.out.println(App.class.getResource(fxml+".fxml"));
         return fxmlLoader.load();
     }
 

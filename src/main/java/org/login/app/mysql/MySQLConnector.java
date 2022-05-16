@@ -20,7 +20,7 @@ public class MySQLConnector {
             prop.load(getClass().getClassLoader().getResourceAsStream(("config.properties")));
         }
         catch(IOException ex){
-            ex.printStackTrace();
+            //ex.printStackTrace();
         }
 
     }
