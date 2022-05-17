@@ -16,7 +16,7 @@
       <TextField fx:id="usernameField" layoutX="128.0" layoutY="258.0" />
       <PasswordField fx:id="passField" layoutX="128.0" layoutY="334.0" />
       <PasswordField fx:id="confirmPassField" layoutX="128.0" layoutY="418.0" />
-      <Button fx:id="registerButton" alignment="CENTER" layoutX="164.0" layoutY="481.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="77.0" text="Register" onAction="#completeRegister"/>
+      <Button fx:id="registerButton" alignment="CENTER" layoutX="223.0" layoutY="475.0" mnemonicParsing="false" onAction="#completeRegister" prefHeight="37.0" prefWidth="77.0" text="Register" />
       <ImageView fitHeight="80.0" fitWidth="236.0" layoutX="85.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@static.img/SQLIcon.png" />
@@ -42,5 +42,7 @@
             <Font size="18.0" />
          </font>
       </Label>
+      <Button fx:id="backButton" layoutX="111.0" layoutY="475.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="68.0" text="Back" onAction="#goBack"/>
+
    </children>
 </AnchorPane>

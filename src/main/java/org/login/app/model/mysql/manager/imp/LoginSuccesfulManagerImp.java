@@ -25,4 +25,5 @@ public class LoginSuccesfulManagerImp implements LoginSuccesfulManager {
             return false;
         }
     }
+
 }
