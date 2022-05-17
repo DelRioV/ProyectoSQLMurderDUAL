@@ -19,7 +19,7 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("org.login.app.loginwindow/LoginWindow"));
         stage.setScene(scene);
-        //stage.setTitle("Tutorial");
+        stage.setTitle("Inicio");
         stage.show();
     }
 

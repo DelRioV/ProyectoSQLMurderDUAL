@@ -8,6 +8,9 @@ module org.login.app {
 
     exports org.login.app;
     opens org.login.app to javafx.fxml;
-    opens org.login.app.loginwindow.controller to javafx.fxml;
+    opens org.login.app.controller.gamewindow to javafx.fxml;
+    opens org.login.app.controller.loginwindow to javafx.fxml;
+    opens org.login.app.controller.mainwindow to javafx.fxml;
+    opens org.login.app.controller.tutorialwindow to javafx.fxml;
 
 }
