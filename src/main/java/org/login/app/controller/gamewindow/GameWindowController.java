@@ -1,9 +1,12 @@
+package org.login.app.controller.gamewindow;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import org.login.app.App;
 import org.login.app.model.mysql.connector.MySQLConnector;
+import org.login.app.model.mysql.manager.imp.QueryRecoverManagerImp;
 
 import java.io.IOException;
 import java.util.ArrayList;
