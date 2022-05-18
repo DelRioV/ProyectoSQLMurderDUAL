@@ -41,7 +41,7 @@ public class LoginController {
 
     @FXML
     private void notRegister() throws IOException{
-        App.setRoot("org.login.app.loginwindow/RegisterWindow");
+        App.setRoot("controller/org.login.app.loginwindow/RegisterWindow");
     }
 
     private void checkUser() throws SQLException{

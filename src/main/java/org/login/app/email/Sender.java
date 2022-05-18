@@ -4,16 +4,11 @@ package org.login.app.email;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.activation.DataHandler;
-import javax.activation.FileDataSource;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
 import java.io.*;
 import java.util.Properties;
-
 
 
 public class Sender {
@@ -24,12 +19,12 @@ public class Sender {
     @Setter
     @Getter
     Properties credentialProp = new Properties();
+
     public Sender() {
         try {
             // Loads all the properties of file "mail.properties".
-            System.out.println(getClass().getResource("email.config.properties/credentials.properties"));
-            mailProp.load(getClass().getClassLoader().getResourceAsStream("email.config.properties/mail.properties"));
-            credentialProp.load(getClass().getClassLoader().getResourceAsStream("email.config.properties/credentials.properties"));
+            mailProp.load(getClass().getClassLoader().getResourceAsStream("mail.properties"));
+            credentialProp.load(getClass().getClassLoader().getResourceAsStream("credentials.properties"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -48,7 +43,7 @@ public class Sender {
             // Set Subject: header field
             message.setSubject(subject);
             // Now set the actual message
-            message.setContent(content,"text/html" );
+            message.setContent(content, "text/html");
             System.out.println("sending...");
             // Send message
             Transport.send(message);
@@ -74,9 +69,8 @@ public class Sender {
     }
 
 
-
     public static void main(String[] args) throws FileNotFoundException, IOException {
-        new Sender().send("sqlmurderproyect@gmail.com","xxismaelor03xx@gmail.com", "Hola =D",
+        new Sender().send("sqlmurderproyect@gmail.com", "xxismaelor03xx@gmail.com", "Hola =D",
                 "<b>Te mando un saludo desde java<b>");
     }
 
