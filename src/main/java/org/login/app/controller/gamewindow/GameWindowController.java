@@ -35,20 +35,22 @@ public class GameWindowController {
         QueryRecoverManagerImp exc = new QueryRecoverManagerImp();
         try {
             ArrayList<ArrayList<String>> recoverInfo = exc.executeQuery(new MySQLConnector().getMySQLConnection(), inputQuery.getText());
-//            if (recoverInfo != null) {
+
 //                for (ArrayList<String> i : recoverInfo) {
 //                    for (String a : i) {
 //                        System.out.println(a);
 //                    }
 //                    System.out.println("---------------");
 //               }
-//           }
-            recoverInfoArea.setText("");
-            for (ArrayList<String> i : recoverInfo) {
-                for (String a : i) {
-                    recoverInfoArea.setText(recoverInfoArea.getText()+"   ||   " + a);
+
+            if (recoverInfo != null) {
+                recoverInfoArea.setText("");
+                for (ArrayList<String> i : recoverInfo) {
+                    for (String a : i) {
+                        recoverInfoArea.setText(recoverInfoArea.getText() + "   ||   " + a);
+                    }
+                    recoverInfoArea.setText(recoverInfoArea.getText() + "\n");
                 }
-                recoverInfoArea.setText(recoverInfoArea.getText() + "\n");
             }
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Error, you write it wrongly, care your spelling");
