@@ -35,14 +35,17 @@ public class Sender {
         Session session = createSession();
         try {
             // Create a default MimeMessage object.
+            System.out.println("Me ejecuto");
             MimeMessage message = new MimeMessage(session);
             // Set From: header field of the header.
             message.setFrom(new InternetAddress(from));
             // Set To: header field of the header.
+            System.out.println("Me ejecuto 2");
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
             // Set Subject: header field
             message.setSubject(subject);
             // Now set the actual message
+            System.out.println("Me ejecuto 3");
             message.setContent(content, "text/html");
             System.out.println("sending...");
             // Send message

@@ -34,6 +34,7 @@ public class RegisterManagerImp implements RegisterManager {
         preparedStatement.setString(2, username);
         preparedStatement.setString(3, email);
         preparedStatement.setString(4, password);
+        System.out.println("soy sql");
         preparedStatement.executeUpdate();
     }
 

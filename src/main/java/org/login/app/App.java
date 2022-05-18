@@ -15,14 +15,18 @@ import java.time.LocalDateTime;
 public class App extends Application {
 
     private static Scene scene;
+    private static Stage stage;
 
     @Override
     public void start(Stage stage) throws IOException {
+        this.stage=stage;
         scene = new Scene(loadFXML("controller/org.login.app.loginwindow/LoginWindow"));
         stage.setScene(scene);
         stage.setTitle("Inicio");
         stage.show();
     }
+
+
 
     public static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));

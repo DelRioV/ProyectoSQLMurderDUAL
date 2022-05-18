@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.login.app.controller.loginwindow.RegisterController">
+   <children>
+      <TextField layoutX="226.0" layoutY="286.0" fx:id="confirmRegisterTextField"/>
+      <Label layoutX="100.0" layoutY="85.0" prefHeight="54.0" prefWidth="422.0" text="We have sent you an email with a verification code to activate your account" />
+      <Label layoutX="224.0" layoutY="207.0" text="Please, Insert here your code" />
+      <Button fx:id="confirmRegisterButton" layoutX="256.0" layoutY="339.0" mnemonicParsing="false" text="Confirm code" onAction="#registerSuccesfull"/>
+   </children>
+</AnchorPane>
