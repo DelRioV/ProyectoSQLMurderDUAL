@@ -28,11 +28,13 @@ public class LoginController {
     private Label errorMessage;
 
     @FXML
-    private void loginToTheApp() throws SQLException,ClassNotFoundException{
+    private void loginToTheApp() throws SQLException, ClassNotFoundException, IOException {
             Connection connection = new MySQLConnector().getMySQLConnection();
             boolean condition = new LoginSuccesfulManagerImp().executeLoginQuery(connection,userTextField.getText(),passwordField.getText());
             if(condition){
                 System.out.println("Succesfully");
+                App.setRoot("controller/org.login.app.gamewindow/GameWindow");
+
             }
             else{
                 errorMessage.setText("username or password are incorrect");
