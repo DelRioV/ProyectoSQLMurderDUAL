@@ -4,6 +4,8 @@ module org.login.app {
     requires java.desktop;
     requires java.sql;
     requires static lombok;
+    requires java.mail;
+    requires activation;
 
 
     exports org.login.app;
