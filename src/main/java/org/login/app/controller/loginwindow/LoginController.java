@@ -36,7 +36,7 @@ public class LoginController {
             boolean condition = new LoginSuccesfulManagerImp().executeLoginQuery(connection,userTextField.getText(),passwordField.getText());
             if(condition){
                 System.out.println("Succesfully");
-               FXMLLoader fxmlLoader = App.setRoot("controller/org.login.app.gamewindow/GameWindow");
+               FXMLLoader fxmlLoader = App.setRoot("controller/gamewindow/GameWindow");
                GameWindowController gameWindowController = fxmlLoader.getController();
                gameWindowController.getUsername().setText(userTextField.getText());
                 gameWindowController.getUsername().setVisible(true);
