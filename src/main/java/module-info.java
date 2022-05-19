@@ -6,6 +6,7 @@ module org.login.app {
     requires static lombok;
     requires java.mail;
     requires activation;
+    requires jakarta.ws.rs;
 
 
     exports org.login.app;
