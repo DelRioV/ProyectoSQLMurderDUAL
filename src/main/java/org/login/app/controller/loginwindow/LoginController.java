@@ -37,7 +37,7 @@ public class LoginController {
 
             }
             else{
-                errorMessage.setText("username or password are incorrect");
+                errorMessage.setVisible(true);
             }
         }
 

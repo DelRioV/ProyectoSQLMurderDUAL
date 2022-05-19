@@ -3,6 +3,7 @@ package org.login.app.controller.loginwindow;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import org.login.app.App;
@@ -39,6 +40,9 @@ public class RegisterController{
     @FXML
     private PasswordField confirmPassField;
 
+    @FXML
+    private Label errorLabel;
+
     private final static Integer RANDOMNUMBER = new ReturnRandomClass().generateRandomNumber();
 
     private ArrayList<String> credentials = new ArrayList<>();
@@ -58,9 +62,13 @@ public class RegisterController{
                     System.out.println(RANDOMNUMBER);
                     App.setRoot("controller/org.login.app.loginwindow/CompletingRegister");
                 } else {
-                    System.out.println("Nombre de usuario ya existente");
+                    errorLabel.setText("Username exists");
+                    errorLabel.setVisible(true);
                 }
             }
+        } else {
+            errorLabel.setText("Fields can't be empty");
+            errorLabel.setVisible(true);
         }
     }
 
