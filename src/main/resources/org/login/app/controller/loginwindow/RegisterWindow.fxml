@@ -41,6 +41,11 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button fx:id="backButton" layoutX="111.0" layoutY="475.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="68.0" text="Back" onAction="#goBack"/>
+      <Button fx:id="backButton" layoutX="111.0" layoutY="475.0" mnemonicParsing="false" onAction="#goBack" prefHeight="37.0" prefWidth="68.0" text="Back" />
+      <Label fx:id="errorLabel" alignment="CENTER" layoutX="102.0" layoutY="525.0" prefHeight="37.0" prefWidth="201.0" text="Fields can't be empty" visible="false">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

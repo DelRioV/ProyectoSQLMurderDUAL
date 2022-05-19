@@ -3,6 +3,7 @@ package org.login.app.controller.loginwindow;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import org.login.app.App;
@@ -39,6 +40,9 @@ public class RegisterController{
     @FXML
     private PasswordField confirmPassField;
 
+    @FXML
+    private Label errorLabel;
+
     private final static Integer RANDOMNUMBER = new ReturnRandomClass().generateRandomNumber();
 
     private ArrayList<String> credentials = new ArrayList<>();
@@ -56,11 +60,15 @@ public class RegisterController{
                     System.out.println(credentials.get(0));
                     sentEmail(emailField.getText());
                     System.out.println(RANDOMNUMBER);
-                    App.setRoot("controller/org.login.app.loginwindow/CompletingRegister");
+                    App.setRoot("controller/loginwindow/CompletingRegister");
                 } else {
-                    System.out.println("Nombre de usuario ya existente");
+                    errorLabel.setText("Username exists");
+                    errorLabel.setVisible(true);
                 }
             }
+        } else {
+            errorLabel.setText("Fields can't be empty");
+            errorLabel.setVisible(true);
         }
     }
 
@@ -108,7 +116,7 @@ public class RegisterController{
     @FXML
     private void goBack() throws IOException {
         System.out.println(App.class.getResource(""));
-        App.setRoot("controller/org.login.app.loginwindow/LoginWindow");
+        App.setRoot("controller/loginwindow/LoginWindow");
     }
 
     @FXML
@@ -120,7 +128,7 @@ public class RegisterController{
             insertUser(connection);
             System.out.println("LLego");
             System.out.println(App.class.getResource(""));
-            App.setRoot("controller/org.login.app.gameWindow/GameWindow.fxml");
+            App.setRoot("controller/gameWindow/GameWindow.fxml");
         }
     }
 

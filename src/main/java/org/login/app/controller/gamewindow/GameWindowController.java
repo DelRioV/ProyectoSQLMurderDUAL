@@ -32,11 +32,13 @@ public class GameWindowController{
     @FXML
     private TextArea inputQuery;
 
+    @FXML
+    private Label errorLabel;
 
 
     @FXML
     public void goBackLoginMenu() throws IOException {
-        App.setRoot("controller/org.login.app.loginwindow/LoginWindow");
+        App.setRoot("controller/loginwindow/LoginWindow");
     }
 
     @FXML
@@ -60,6 +62,10 @@ public class GameWindowController{
                     }
                     recoverInfoArea.setText(recoverInfoArea.getText() + "\n");
                 }
+                errorLabel.setVisible(false);
+            } else {
+                errorLabel.setText("You write it wrongly, care your spelling!");
+                errorLabel.setVisible(true);
             }
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Error, you write it wrongly, care your spelling");

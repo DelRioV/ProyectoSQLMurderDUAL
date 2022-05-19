@@ -40,16 +40,17 @@ public class LoginController {
                GameWindowController gameWindowController = fxmlLoader.getController();
                gameWindowController.getUsername().setText(userTextField.getText());
                 gameWindowController.getUsername().setVisible(true);
+                App.setRoot("controller/gamewindow/GameWindow");
 
             }
             else{
-                errorMessage.setText("username or password are incorrect");
+                errorMessage.setVisible(true);
             }
         }
 
     @FXML
     private void notRegister() throws IOException{
-        App.setRoot("controller/org.login.app.loginwindow/RegisterWindow");
+        App.setRoot("controller/loginwindow/RegisterWindow");
     }
 
     private void checkUser() throws SQLException{
