@@ -33,7 +33,7 @@ public class LoginController {
             boolean condition = new LoginSuccesfulManagerImp().executeLoginQuery(connection,userTextField.getText(),passwordField.getText());
             if(condition){
                 System.out.println("Succesfully");
-                App.setRoot("controller/org.login.app.gamewindow/GameWindow");
+                App.setRoot("controller/gamewindow/GameWindow");
 
             }
             else{
@@ -43,7 +43,7 @@ public class LoginController {
 
     @FXML
     private void notRegister() throws IOException{
-        App.setRoot("controller/org.login.app.loginwindow/RegisterWindow");
+        App.setRoot("controller/loginwindow/RegisterWindow");
     }
 
     private void checkUser() throws SQLException{

@@ -29,7 +29,7 @@ public class GameWindowController {
 
     @FXML
     public void goBackLoginMenu() throws IOException {
-        App.setRoot("controller/org.login.app.loginwindow/LoginWindow");
+        App.setRoot("controller/loginwindow/LoginWindow");
     }
 
     @FXML

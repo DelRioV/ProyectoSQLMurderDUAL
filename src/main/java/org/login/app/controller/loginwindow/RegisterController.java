@@ -60,7 +60,7 @@ public class RegisterController{
                     System.out.println(credentials.get(0));
                     sentEmail(emailField.getText());
                     System.out.println(RANDOMNUMBER);
-                    App.setRoot("controller/org.login.app.loginwindow/CompletingRegister");
+                    App.setRoot("controller/loginwindow/CompletingRegister");
                 } else {
                     errorLabel.setText("Username exists");
                     errorLabel.setVisible(true);
@@ -116,7 +116,7 @@ public class RegisterController{
     @FXML
     private void goBack() throws IOException {
         System.out.println(App.class.getResource(""));
-        App.setRoot("controller/org.login.app.loginwindow/LoginWindow");
+        App.setRoot("controller/loginwindow/LoginWindow");
     }
 
     @FXML
@@ -128,7 +128,7 @@ public class RegisterController{
             insertUser(connection);
             System.out.println("LLego");
             System.out.println(App.class.getResource(""));
-            App.setRoot("controller/org.login.app.gameWindow/GameWindow.fxml");
+            App.setRoot("controller/gameWindow/GameWindow.fxml");
         }
     }
 
