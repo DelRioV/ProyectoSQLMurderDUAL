@@ -1,12 +1,13 @@
 package org.login.app.controller.loginwindow;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import org.login.app.App;
+import org.login.app.controller.gamewindow.GameWindowController;
 import org.login.app.email.Sender;
 import org.login.app.model.mysql.connector.MySQLConnector;
 import org.login.app.model.mysql.manager.imp.RegisterManagerImp;
@@ -40,9 +41,6 @@ public class RegisterController{
     @FXML
     private PasswordField confirmPassField;
 
-    @FXML
-    private Label errorLabel;
-
     private final static Integer RANDOMNUMBER = new ReturnRandomClass().generateRandomNumber();
 
     private ArrayList<String> credentials = new ArrayList<>();
@@ -54,21 +52,18 @@ public class RegisterController{
             && !confirmPassField.getText().isEmpty()) {
             if (checkPasswords()) {
                 if (checkDataBase(connection)) {
-                    credentials.add(emailField.getText());
-                    credentials.add(usernameField.getText());
-                    credentials.add(passField.getText());
-                    System.out.println(credentials.get(0));
+                    FXMLLoader fxmlLoader = App.setRoot("controller/loginwindow/CompletingRegister");
+                    RegisterSuccesfullyController registerSuccesfullyController = fxmlLoader.getController();
+                    registerSuccesfullyController.getCredentials().add(emailField.getText());
+                    registerSuccesfullyController.getCredentials().add(usernameField.getText());
+                    registerSuccesfullyController.getCredentials().add(passField.getText());
+                    registerSuccesfullyController.setRandomNumber(RANDOMNUMBER);
                     sentEmail(emailField.getText());
-                    System.out.println(RANDOMNUMBER);
-                    App.setRoot("controller/loginwindow/CompletingRegister");
+
                 } else {
-                    errorLabel.setText("Username exists");
-                    errorLabel.setVisible(true);
+                    System.out.println("Nombre de usuario ya existente");
                 }
             }
-        } else {
-            errorLabel.setText("Fields can't be empty");
-            errorLabel.setVisible(true);
         }
     }
 
@@ -83,9 +78,7 @@ public class RegisterController{
         return kk;
     }
 
-    public void insertUser(Connection connection) throws SQLException{
-        new RegisterManagerImp().executeRegisterQuery(connection, credentials.get(0), credentials.get(1), credentials.get(2));
-    }
+
 
     private boolean checkDataBase(Connection connection) throws SQLException {
         boolean kk = true;
@@ -116,21 +109,10 @@ public class RegisterController{
     @FXML
     private void goBack() throws IOException {
         System.out.println(App.class.getResource(""));
-        App.setRoot("controller/loginwindow/LoginWindow");
+        App.setRoot("controller/org.login.app.loginwindow/LoginWindow");
     }
 
-    @FXML
-    private void registerSuccesfull() throws IOException, SQLException, ClassNotFoundException {
-        System.out.println(confirmRegisterTextField.getText().equals(RANDOMNUMBER.toString()));
-        System.out.println(RANDOMNUMBER);
-        if(confirmRegisterTextField.getText().equals(RANDOMNUMBER.toString())){
-            Connection connection = new MySQLConnector().getMySQLConnection();
-            insertUser(connection);
-            System.out.println("LLego");
-            System.out.println(App.class.getResource(""));
-            App.setRoot("controller/gameWindow/GameWindow.fxml");
-        }
-    }
+
 
 
 }

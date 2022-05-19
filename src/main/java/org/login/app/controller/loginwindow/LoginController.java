@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 import lombok.Getter;
 import org.login.app.App;
 import org.login.app.controller.gamewindow.GameWindowController;
+import org.login.app.controller.mainwindow.MainWindowController;
 import org.login.app.model.mysql.connector.MySQLConnector;
 import org.login.app.model.mysql.manager.imp.LoginSuccesfulManagerImp;
 
@@ -36,11 +37,10 @@ public class LoginController {
             boolean condition = new LoginSuccesfulManagerImp().executeLoginQuery(connection,userTextField.getText(),passwordField.getText());
             if(condition){
                 System.out.println("Succesfully");
-               FXMLLoader fxmlLoader = App.setRoot("controller/gamewindow/GameWindow");
-               GameWindowController gameWindowController = fxmlLoader.getController();
-               gameWindowController.getUsername().setText(userTextField.getText());
-                gameWindowController.getUsername().setVisible(true);
-                App.setRoot("controller/gamewindow/GameWindow");
+               FXMLLoader fxmlLoader = App.setRoot("controller/mainwindow/MainWindow");
+               MainWindowController mainWindowController = fxmlLoader.getController();
+                mainWindowController.setUser(userTextField.getText());
+                App.setRoot("controller/mainwindow/MainWindow");
 
             }
             else{
