@@ -1,11 +1,14 @@
 package org.login.app.controller.loginwindow;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import lombok.Getter;
 import org.login.app.App;
+import org.login.app.controller.gamewindow.GameWindowController;
 import org.login.app.model.mysql.connector.MySQLConnector;
 import org.login.app.model.mysql.manager.imp.LoginSuccesfulManagerImp;
 
@@ -33,7 +36,10 @@ public class LoginController {
             boolean condition = new LoginSuccesfulManagerImp().executeLoginQuery(connection,userTextField.getText(),passwordField.getText());
             if(condition){
                 System.out.println("Succesfully");
-                App.setRoot("controller/org.login.app.gamewindow/GameWindow");
+               FXMLLoader fxmlLoader = App.setRoot("controller/org.login.app.gamewindow/GameWindow");
+               GameWindowController gameWindowController = fxmlLoader.getController();
+               gameWindowController.getUsername().setText(userTextField.getText());
+                gameWindowController.getUsername().setVisible(true);
 
             }
             else{

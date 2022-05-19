@@ -20,7 +20,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         this.stage=stage;
-        scene = new Scene(loadFXML("controller/org.login.app.loginwindow/LoginWindow"));
+        scene = new Scene(loadFXML("controller/org.login.app.loginwindow/LoginWindow").load());
         stage.setScene(scene);
         stage.setTitle("Inicio");
         stage.show();
@@ -28,14 +28,18 @@ public class App extends Application {
 
 
 
-    public static void setRoot(String fxml) throws IOException {
-        scene.setRoot(loadFXML(fxml));
+    public static FXMLLoader setRoot(String fxml) throws IOException {
+        FXMLLoader fxmlLoader =loadFXML(fxml);
+        stage.hide();
+        scene.setRoot(fxmlLoader.load());
+        stage.show();
+        return fxmlLoader;
     }
 
-    private static Parent loadFXML(String fxml) throws IOException {
+    private static FXMLLoader loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml+".fxml"));
         System.out.println(App.class.getResource(fxml+".fxml"));
-        return fxmlLoader.load();
+        return fxmlLoader;
     }
 
     public static void main(String[] args) {
