@@ -12,16 +12,15 @@ import java.util.stream.Stream;
 
 public class QueryRecoverManagerImp implements QueryRecoverManager {
 
-    private static final String [] WORDS={"insert","update","drop",";" ,"user","user_code","solution","delete"} ;
+    private static final String[] WORDS = {"insert", "update", "drop", ";", "user", "user_code", "solution", "delete"};
 
     @Override
-    public ArrayList<ArrayList<String>> executeQuery(Connection connection, String query,int user_code) {
+    public ArrayList<ArrayList<String>> executeQuery(Connection connection, String query, int user_code) {
         ArrayList<ArrayList<String>> recoverQuery = new ArrayList<>();
-        String lowerQuery=query.toLowerCase();
-        if(!confirmQuery(lowerQuery)) {
+        String lowerQuery = query.toLowerCase();
+        if (!confirmQuery(lowerQuery)) {
             try {
-                query =convertQuery(query,user_code);
-                System.out.println(query);
+                query = convertQuery(query, user_code);
                 Statement statement = connection.createStatement();
                 ResultSet rs = statement.executeQuery(query + ";");
                 while (rs.next()) {
@@ -41,36 +40,33 @@ public class QueryRecoverManagerImp implements QueryRecoverManager {
                 System.out.println("Something introduced isn't correct");
                 return null;
             }
-        }
-        else{
+        } else {
             return null;
         }
     }
 
     private boolean confirmQuery(String query) {
-        boolean condition=false;
-        for(int i=0;i<WORDS.length;i++){
-            System.out.println(WORDS[i]);
-            if(query.contains(WORDS[i])){
-                condition=true;
+        boolean condition = false;
+        for (int i = 0; i < WORDS.length; i++) {
+            if (query.contains(WORDS[i])) {
+                condition = true;
                 break;
             }
         }
         return condition;
     }
 
-    private int getWhereCounter(String query){
+    private int getWhereCounter(String query) {
         String comparableWord = "where";
-        int counter=0;
-        if (query.contains(comparableWord)){
-            for (int i=0;i<query.length();i++){
-                if(query.charAt(i)==comparableWord.charAt(0)){
-                    String compareQuery="";
-                    System.out.println("w");
-                    for (int x=0;x<comparableWord.length();x++){
-                        compareQuery+=query.charAt(i++);
+        int counter = 0;
+        if (query.contains(comparableWord)) {
+            for (int i = 0; i < query.length(); i++) {
+                if (query.charAt(i) == comparableWord.charAt(0)) {
+                    String compareQuery = "";
+                    for (int x = 0; x < comparableWord.length(); x++) {
+                        compareQuery += query.charAt(i++);
                     }
-                    if (compareQuery.equalsIgnoreCase(comparableWord)){
+                    if (compareQuery.equalsIgnoreCase(comparableWord)) {
                         counter++;
                     }
                 }
@@ -79,39 +75,80 @@ public class QueryRecoverManagerImp implements QueryRecoverManager {
         return counter;
     }
 
-    public String convertQuery(String query,int user_code){
-        int counter =getWhereCounter(query);
-        String updatedQuery="";
-        if(counter==0){
-            updatedQuery+=query+" where user_code = "+user_code;
-        }
-        else if(counter==1){
-            updatedQuery+=query+" and user_code = "+user_code;
-        }
-        else if(counter>1){
-            String compareWord="and";
-            for(int i=0;i<query.length();i++){
-                String kk = Character.toString(query.charAt(i));
-                if(i+2 < query.length()){
-                    kk+=Character.toString(query.charAt(i+1));
-                    kk+=Character.toString(query.charAt(i+2));
-                    System.out.println(kk);
-                }
-                if(kk.equals(compareWord)){
-                    updatedQuery +=" and user_code = "+user_code;
-                    System.out.println(updatedQuery +" hola ");
-                    i=query.indexOf("where",i);
-                    if(i==-1){
-                        break;
+    public String convertQuery(String query, int user_code) {
+        int counter = getWhereCounter(query);
+        String updatedQuery = "";
+        if (counter == 0) {
+            updatedQuery += query + " where user_code = " + user_code;
+        } else {
+            String comparableWord = "where";
+            for (int i = 0; i < query.length(); i++) {
+                if (query.charAt(i) == comparableWord.charAt(0)) {
+                    String compareQuery = "";
+                    for (int x = 0; x < comparableWord.length(); x++) {
+                        compareQuery += query.charAt(i++);
                     }
-                }
-                else {
-                    updatedQuery+=query.charAt(i);
+                    if (compareQuery.equalsIgnoreCase(comparableWord)) {
+                        updatedQuery += "where user_code = " + user_code + " and ";
+
+                    }
+
+                } else {
+                    updatedQuery += query.charAt(i);
                 }
             }
         }
-        System.out.println(updatedQuery);
+            System.out.println(updatedQuery);
+
         return updatedQuery;
     }
-
 }
+
+    /** while (counter!=-1){
+     if(counter==0){
+     updatedQuery+=query+" where user_code = "+user_code;
+     counter=-1;
+     }
+     else if(counter==1){
+     if(query.contains("(")){
+     updatedQuery+=query+" and user_code = "+user_code + ")";
+     }
+     else{
+     updatedQuery+=query+" and user_code = "+user_code;
+     }
+     counter=-1;
+     }
+     else {
+     String compareWord="and";
+     for(int i=0;i<query.length();i++){
+     String kk ="";
+     if(i+2 < query.length() && compareWord.equals("and")){
+     for(int y=0;y<3;y++){
+     kk+=Character.toString(query.charAt(i+y));
+     }
+     if(kk.equals(compareWord)){
+     updatedQuery +=" and user_code = "+user_code+" "+query.charAt(i);
+     }
+     else {
+     updatedQuery+=query.charAt(i);
+     }
+     }
+     String aux = Character.toString(query.charAt(i));
+     if(aux.equals("(")){
+     System.out.println("Entro");
+     counter=getWhereCounter(query.substring(query.indexOf("(")));
+     query=query.substring(query.indexOf("(")+1,query.length()-2);
+     System.out.println(counter);
+     break;
+     }
+
+     }
+     }
+     else
+     if(query.contains("(")){
+     updatedQuery+=query+" and user_code = "+user_code + ")";
+     }
+     System.out.println(updatedQuery);
+     } **/
+
+

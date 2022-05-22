@@ -56,7 +56,9 @@ public class MainWindowController{
             gameWindowController.getUsername().setText(user);
             gameWindowController.getUsername().setVisible(true);
         }
-        App.setRoot(text);
+        else{
+            App.setRoot(text);
+        }
     }
 
 
