@@ -31,17 +31,17 @@ public class LoginController {
     @FXML
     private Label errorMessage;
 
+
+
     @FXML
     private void loginToTheApp() throws SQLException, ClassNotFoundException, IOException {
             Connection connection = new MySQLConnector().getMySQLConnection();
             boolean condition = new LoginSuccesfulManagerImp().executeLoginQuery(connection,userTextField.getText(),passwordField.getText());
             if(condition){
                 System.out.println("Succesfully");
-               FXMLLoader fxmlLoader = App.setRoot("controller/mainwindow/MainWindow");
-               MainWindowController mainWindowController = fxmlLoader.getController();
-                mainWindowController.setUser(userTextField.getText());
-                App.setRoot("controller/mainwindow/MainWindow");
-
+                FXMLLoader fxmlLoader = App.setRoot("controller/mainwindow/MainWindow");
+                MainWindowController mainWindowController = fxmlLoader.getController();
+                mainWindowController.setUser(userTextField.getText().toString());
             }
             else{
                 errorMessage.setVisible(true);
