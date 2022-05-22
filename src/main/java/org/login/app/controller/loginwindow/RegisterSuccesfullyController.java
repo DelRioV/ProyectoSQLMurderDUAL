@@ -7,12 +7,15 @@ import lombok.Getter;
 import lombok.Setter;
 import org.login.app.App;
 import org.login.app.controller.mainwindow.MainWindowController;
+import org.login.app.jaxrsclient.client.RegisterClient;
+import org.login.app.jaxrsclient.dto.User;
 import org.login.app.model.mysql.connector.MySQLConnector;
 import org.login.app.model.mysql.manager.imp.RegisterManagerImp;
 
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class RegisterSuccesfullyController {
@@ -33,8 +36,7 @@ public class RegisterSuccesfullyController {
         System.out.println(confirmRegisterTextField.getText().equals(randomNumber.toString()));
         System.out.println(randomNumber);
         if(confirmRegisterTextField.getText().equals(randomNumber.toString())){
-            Connection connection = new MySQLConnector().getMySQLConnection();
-            insertUser(connection);
+            insertUser();
             FXMLLoader fxmlLoader = App.setRoot("controller/mainWindow/MainWindow");
             MainWindowController mainWindowController =fxmlLoader.getController();
             mainWindowController.setUser(credentials.get(1));
@@ -43,8 +45,8 @@ public class RegisterSuccesfullyController {
         }
     }
 
-    public void insertUser(Connection connection) throws SQLException{
-        new RegisterManagerImp().executeRegisterQuery(connection, credentials.get(0), credentials.get(1), credentials.get(2));
+    public void insertUser() throws SQLException{
+        new RegisterClient().postRegister(User.builder().username(credentials.get(1)).password(credentials.get(2)).email(credentials.get(0)).user_code(LocalDateTime.now().getNano()).build());
     }
     
 }

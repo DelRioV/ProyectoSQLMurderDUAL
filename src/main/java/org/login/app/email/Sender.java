@@ -1,12 +1,13 @@
 package org.login.app.email;
 
 
+import jakarta.mail.*;
+import jakarta.mail.internet.InternetAddress;
+import jakarta.mail.internet.MimeMessage;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.mail.*;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
+
 import java.io.*;
 import java.util.Properties;
 
@@ -60,7 +61,7 @@ public class Sender {
     }
 
     private Session createSession() {
-        Session session = Session.getInstance(mailProp, new javax.mail.Authenticator() {
+        Session session = Session.getInstance(mailProp, new jakarta.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(credentialProp.getProperty(CredentialsConstants.USER),
                         credentialProp.getProperty(CredentialsConstants.PASSWD));
@@ -73,7 +74,7 @@ public class Sender {
 
 
     public static void main(String[] args) throws FileNotFoundException, IOException {
-        new Sender().send("sqlmurderproyect@gmail.com", "xxismaelor03xx@gmail.com", "Hola =D",
+        new Sender().send("sqlmurderproyect@gmail.com", "pabloskydelriovergara@gmail.com", "Hola =D",
                 "<b>Te mando un saludo desde java<b>");
     }
 

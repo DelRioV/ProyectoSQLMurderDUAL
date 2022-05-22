@@ -4,9 +4,10 @@ module org.login.app {
     requires java.desktop;
     requires java.sql;
     requires static lombok;
-    requires java.mail;
     requires jakarta.ws.rs;
     requires jakarta.xml.bind;
+    requires jakarta.activation;
+    requires jakarta.mail;
 
 
     exports org.login.app;

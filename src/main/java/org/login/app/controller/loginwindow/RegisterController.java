@@ -9,6 +9,8 @@ import javafx.scene.control.TextField;
 import org.login.app.App;
 import org.login.app.controller.gamewindow.GameWindowController;
 import org.login.app.email.Sender;
+import org.login.app.jaxrsclient.client.RegisterClient;
+import org.login.app.jaxrsclient.dto.User;
 import org.login.app.model.mysql.connector.MySQLConnector;
 import org.login.app.model.mysql.manager.imp.RegisterManagerImp;
 
@@ -16,11 +18,12 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.ResourceBundle;
 
-public class RegisterController{
+public class RegisterController {
 
     @FXML
     private Button registerButton;
@@ -46,26 +49,32 @@ public class RegisterController{
     private ArrayList<String> credentials = new ArrayList<>();
 
     @FXML
-    private void completeRegister() throws IOException, SQLException, ClassNotFoundException {
-        Connection connection = new MySQLConnector().getMySQLConnection();
-        if(!usernameField.getText().isEmpty() && !emailField.getText().isEmpty() && !passField.getText().isEmpty()
-            && !confirmPassField.getText().isEmpty()) {
-            if (checkPasswords()) {
-                if (checkDataBase(connection)) {
-                    FXMLLoader fxmlLoader = App.setRoot("controller/loginwindow/CompletingRegister");
-                    RegisterSuccesfullyController registerSuccesfullyController = fxmlLoader.getController();
-                    registerSuccesfullyController.getCredentials().add(emailField.getText());
-                    registerSuccesfullyController.getCredentials().add(usernameField.getText());
-                    registerSuccesfullyController.getCredentials().add(passField.getText());
-                    registerSuccesfullyController.setRandomNumber(RANDOMNUMBER);
-                    sentEmail(emailField.getText());
+    private void registerClient() {
+        try {
+            Connection connection = new MySQLConnector().getMySQLConnection();
+            if (!usernameField.getText().isEmpty() && !emailField.getText().isEmpty() && !passField.getText().isEmpty()
+                    && !confirmPassField.getText().isEmpty()) {
+                if (checkPasswords()) {
+                    if (checkDataBase(connection)) {
+                       // new RegisterClient().postRegister(User.builder().username(usernameField.getText()).password(passField.getText()).email(emailField.getText()).user_code(LocalDateTime.now().getNano()).build());
+                        FXMLLoader fxmlLoader = App.setRoot("controller/loginwindow/CompletingRegister");
+                        RegisterSuccesfullyController registerSuccesfullyController = fxmlLoader.getController();
+                        registerSuccesfullyController.getCredentials().add(emailField.getText());
+                        registerSuccesfullyController.getCredentials().add(usernameField.getText());
+                        registerSuccesfullyController.getCredentials().add(passField.getText());
+                        registerSuccesfullyController.setRandomNumber(RANDOMNUMBER);
+                        sentEmail(emailField.getText());
 
-                } else {
-                    System.out.println("Nombre de usuario ya existente");
+                    } else {
+                        System.out.println("Nombre de usuario ya existente");
+                    }
                 }
             }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
+
 
     @FXML
     private boolean checkPasswords() {
@@ -77,7 +86,6 @@ public class RegisterController{
         }
         return kk;
     }
-
 
 
     private boolean checkDataBase(Connection connection) throws SQLException {
@@ -94,16 +102,15 @@ public class RegisterController{
 
     }
 
-    public void sentEmail(String to){
+    public void sentEmail(String to) {
 
-        try{
-            new Sender().send("sqlmurderproyect@gmail.com",to,"Check your account","Your code is : "+RANDOMNUMBER);
-        }catch (Exception e){
+        try {
+            new Sender().send("sqlmurderproyect@gmail.com", to, "Check your account", "Your code is : " + RANDOMNUMBER);
+        } catch (Exception e) {
             System.out.println("Correo no encontrado");
         }
 
     }
-
 
 
     @FXML
@@ -111,8 +118,6 @@ public class RegisterController{
         System.out.println(App.class.getResource(""));
         App.setRoot("controller/loginwindow/LoginWindow");
     }
-
-
 
 
 }
