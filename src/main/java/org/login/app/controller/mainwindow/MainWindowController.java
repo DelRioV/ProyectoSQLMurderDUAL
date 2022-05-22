@@ -31,11 +31,11 @@ public class MainWindowController{
         String text="";
         if(event.getSource()==playButton){
             System.out.println("hola amigo");
-            text="controller/gamewindow/GameWindow";
+            text="fxml/gamewindow/GameWindow";
         }
         else if(event.getSource()==startTutorialButton){
             System.out.println("adios");
-            text="controller/tutorialwindow/originTutorialWindow";
+            text="fxml/tutorialwindow/originTutorialWindow";
         }
         else{
             text="";//En proceso
@@ -48,7 +48,7 @@ public class MainWindowController{
 
 
     private void changeWindow(String text) throws IOException {
-        if(text.equals("controller/gamewindow/GameWindow")){
+        if(text.equals("fxml/gamewindow/GameWindow")){
             FXMLLoader fxmlLoader = App.setRoot(text);
             GameWindowController gameWindowController = fxmlLoader.getController();
             gameWindowController.getUsername().setText(user);

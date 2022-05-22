@@ -57,7 +57,7 @@ public class RegisterController {
                 if (checkPasswords()) {
                     if (checkDataBase(connection)) {
                        // new RegisterClient().postRegister(User.builder().username(usernameField.getText()).password(passField.getText()).email(emailField.getText()).user_code(LocalDateTime.now().getNano()).build());
-                        FXMLLoader fxmlLoader = App.setRoot("controller/loginwindow/CompletingRegister");
+                        FXMLLoader fxmlLoader = App.setRoot("fxml/loginwindow/CompletingRegister");
                         RegisterSuccesfullyController registerSuccesfullyController = fxmlLoader.getController();
                         registerSuccesfullyController.getCredentials().add(emailField.getText());
                         registerSuccesfullyController.getCredentials().add(usernameField.getText());
@@ -116,7 +116,7 @@ public class RegisterController {
     @FXML
     private void goBack() throws IOException {
         System.out.println(App.class.getResource(""));
-        App.setRoot("controller/loginwindow/LoginWindow");
+        App.setRoot("fxml/loginwindow/LoginWindow");
     }
 
 

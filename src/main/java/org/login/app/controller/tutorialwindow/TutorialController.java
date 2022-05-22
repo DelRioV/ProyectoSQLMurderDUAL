@@ -47,7 +47,7 @@ public class TutorialController implements Initializable {
         if(event.getSource()==alreadyNow){
             counter++;
         }
-        App.setRoot("tutorialWindow"+counter);
+        App.setRoot("fxml/tutorialwindow/TutorialWindow"+counter);
 
     }
 

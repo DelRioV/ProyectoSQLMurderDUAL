@@ -37,10 +37,10 @@ public class RegisterSuccesfullyController {
         System.out.println(randomNumber);
         if(confirmRegisterTextField.getText().equals(randomNumber.toString())){
             insertUser();
-            FXMLLoader fxmlLoader = App.setRoot("controller/mainWindow/MainWindow");
+            FXMLLoader fxmlLoader = App.setRoot("fxml/mainWindow/MainWindow");
             MainWindowController mainWindowController =fxmlLoader.getController();
             mainWindowController.setUser(credentials.get(1));
-            App.setRoot("controller/mainWindow/MainWindow");
+            App.setRoot("fxml/mainWindow/MainWindow");
 
         }
     }

@@ -37,10 +37,10 @@ public class LoginController {
             boolean condition = new LoginSuccesfulManagerImp().executeLoginQuery(connection,userTextField.getText(),passwordField.getText());
             if(condition){
                 System.out.println("Succesfully");
-               FXMLLoader fxmlLoader = App.setRoot("controller/mainwindow/MainWindow");
+               FXMLLoader fxmlLoader = App.setRoot("fxml/mainwindow/MainWindow");
                MainWindowController mainWindowController = fxmlLoader.getController();
                 mainWindowController.setUser(userTextField.getText());
-                App.setRoot("controller/mainwindow/MainWindow");
+                App.setRoot("fxml/mainwindow/MainWindow");
 
             }
             else{
@@ -50,7 +50,7 @@ public class LoginController {
 
     @FXML
     private void notRegister() throws IOException{
-        App.setRoot("controller/loginwindow/RegisterWindow");
+        App.setRoot("fxml/loginwindow/RegisterWindow");
     }
 
     private void checkUser() throws SQLException{

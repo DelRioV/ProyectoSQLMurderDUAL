@@ -38,7 +38,7 @@ public class GameWindowController{
 
     @FXML
     public void goBackLoginMenu() throws IOException {
-        App.setRoot("controller/loginwindow/LoginWindow");
+        App.setRoot("fxml/loginwindow/LoginWindow");
     }
 
     @FXML
