@@ -45,7 +45,7 @@ public class GameWindowController{
     public void executeQuery() {
         QueryRecoverManagerImp exc = new QueryRecoverManagerImp();
         try {
-            ArrayList<ArrayList<String>> recoverInfo = exc.executeQuery(new MySQLConnector().getMySQLConnection(), inputQuery.getText());
+            ArrayList<ArrayList<String>> recoverInfo = exc.executeQuery(new MySQLConnector().getMySQLConnection(), inputQuery.getText(),0); //Change
 
 //                for (ArrayList<String> i : recoverInfo) {
 //                    for (String a : i) {
