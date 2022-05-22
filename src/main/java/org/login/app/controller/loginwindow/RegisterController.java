@@ -109,7 +109,7 @@ public class RegisterController{
     @FXML
     private void goBack() throws IOException {
         System.out.println(App.class.getResource(""));
-        App.setRoot("controller/org.login.app.loginwindow/LoginWindow");
+        App.setRoot("controller/loginwindow/LoginWindow");
     }
 
 

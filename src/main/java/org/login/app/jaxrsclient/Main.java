@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(new RegisterClient().postRegister(
-                User.builder().username("pepe").password("pepe").email("pepe@gg").user_code(LocalDateTime.now().getNano()).build()));
+        new RegisterClient().postRegister(
+                User.builder().username("pepe").password("pepe").email("pepe@gg").user_code(LocalDateTime.now().getNano()).build());
     }
 }

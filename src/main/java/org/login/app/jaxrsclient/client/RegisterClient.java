@@ -17,7 +17,7 @@ public class RegisterClient {
     }
 
     public User postRegister(User user) {
-        return webTarget.path("register/post")
+        return webTarget.path("register/post/")
                 .request(MediaType.APPLICATION_JSON)
                 .post(Entity.entity(user,MediaType.APPLICATION_JSON), User.class);
     }

@@ -5,11 +5,12 @@ module org.login.app {
     requires java.sql;
     requires static lombok;
     requires java.mail;
-    requires activation;
     requires jakarta.ws.rs;
+    requires jakarta.xml.bind;
 
 
     exports org.login.app;
+    exports org.login.app.jaxrsclient.dto;
     opens org.login.app to javafx.fxml;
     opens org.login.app.controller.gamewindow to javafx.fxml;
     opens org.login.app.controller.loginwindow to javafx.fxml;
