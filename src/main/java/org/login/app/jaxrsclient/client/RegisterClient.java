@@ -16,8 +16,15 @@ public class RegisterClient {
         this.webTarget = client.target("http://localhost:8080/webService/api/");
     }
 
+    public String ping() {
+
+        return webTarget.path("register/ping")
+                .request(MediaType.APPLICATION_JSON)
+                .get(String.class);
+    }
+
     public User postRegister(User user) {
-        return webTarget.path("register/post/")
+        return webTarget.path("register/post")
                 .request(MediaType.APPLICATION_JSON)
                 .post(Entity.entity(user,MediaType.APPLICATION_JSON), User.class);
     }
