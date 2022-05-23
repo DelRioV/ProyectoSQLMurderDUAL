@@ -55,10 +55,8 @@ public class TutorialController implements Initializable {
     public void getSqlTutorialLink(){
         try {
             Desktop.getDesktop().browse(new URI("https://www.w3schools.com/sql/default.asp"));
-        } catch (URISyntaxException ex) {
-            System.out.println(ex);
-        }catch(IOException e){
-            System.out.println(e);
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
     }
 

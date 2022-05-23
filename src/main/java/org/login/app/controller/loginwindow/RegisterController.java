@@ -6,6 +6,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import lombok.Getter;
+import lombok.Setter;
 import org.login.app.App;
 import org.login.app.controller.gamewindow.GameWindowController;
 import org.login.app.email.Sender;
@@ -23,6 +25,8 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.ResourceBundle;
 
+@Getter
+@Setter
 public class RegisterController {
 
     @FXML

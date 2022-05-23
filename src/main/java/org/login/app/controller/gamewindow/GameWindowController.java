@@ -11,6 +11,7 @@ import org.login.app.App;
 import org.login.app.model.mysql.connector.MySQLConnector;
 import org.login.app.model.mysql.manager.imp.QueryRecoverManagerImp;
 import org.login.app.model.mysql.manager.imp.UserCodeManagerImp;
+import org.login.app.service.GameWindowService;
 
 import java.io.IOException;
 import java.net.URL;
@@ -45,11 +46,8 @@ public class GameWindowController{
     }
 
     @FXML
-    public void executeQuery() throws SQLException,ClassNotFoundException {
-        QueryRecoverManagerImp exc = new QueryRecoverManagerImp();
-        int user_code =new UserCodeManagerImp().getUserCode(new MySQLConnector().getMySQLConnection(), user);
-        try {
-            ArrayList<ArrayList<String>> recoverInfo = exc.executeQuery(new MySQLConnector().getMySQLConnection(), inputQuery.getText(),user_code);
+    public void executeQuery() throws SQLException, ClassNotFoundException {
+       ArrayList<ArrayList<String>> recoverInfo = new GameWindowService().executeQuery(user,inputQuery.getText());
             if (recoverInfo != null) {
                 recoverInfoArea.setText("");
                 for (ArrayList<String> i : recoverInfo) {
@@ -63,11 +61,7 @@ public class GameWindowController{
                 errorLabel.setText("You write it wrongly, care your spelling!");
                 errorLabel.setVisible(true);
             }
-        } catch (Exception e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Error, you write it wrongly, care your spelling");
-            e.printStackTrace();
         }
     }
 
 
-}

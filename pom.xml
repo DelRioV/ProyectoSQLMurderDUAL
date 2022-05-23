@@ -24,7 +24,6 @@
             <artifactId>jersey-client</artifactId>
             <version>3.0.4</version>
         </dependency>
-
         <dependency>
             <groupId>jakarta.xml.bind</groupId>
             <artifactId>jakarta.xml.bind-api</artifactId>
