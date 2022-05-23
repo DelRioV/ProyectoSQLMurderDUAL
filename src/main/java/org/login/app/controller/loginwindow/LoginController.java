@@ -8,6 +8,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import org.login.app.App;
 import org.login.app.controller.mainwindow.MainWindowController;
+import org.login.app.jaxrsclient.dto.User;
 import org.login.app.service.LoginService;
 
 import java.io.IOException;
@@ -29,8 +30,8 @@ public class LoginController {
 
     @FXML
     private void loginToTheApp() throws SQLException, ClassNotFoundException, IOException {
-        boolean condition = new LoginService().loginToTheApp(userTextField.getText(), passwordField.getText());
-        if (condition) {
+        if (new LoginService().loginToTheApp(User.builder().username(userTextField.getText()).password(passwordField.getText()).build())
+        ) {
             System.out.println("Succesfully");
             FXMLLoader fxmlLoader = App.setRoot("fxml/mainwindow/MainWindow");
             MainWindowController mainWindowController = fxmlLoader.getController();

@@ -1,15 +1,13 @@
 package org.login.app.service;
 
-import org.login.app.model.mysql.connector.MySQLConnector;
-import org.login.app.model.mysql.manager.imp.LoginSuccesfulManagerImp;
-
-import java.sql.Connection;
+import org.login.app.jaxrsclient.client.LoginClient;
+import org.login.app.jaxrsclient.dto.User;
 
 public class LoginService {
 
-    public boolean loginToTheApp(String username, String password) {
+    public boolean loginToTheApp(User user) {
         try {
-            return new LoginSuccesfulManagerImp().executeLoginQuery(new MySQLConnector().getMySQLConnection(), username, password);
+            return new LoginClient().getLogin(user).booleanValue();
         } catch (Exception e) {
             e.printStackTrace();
             return false;
