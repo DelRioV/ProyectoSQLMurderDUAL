@@ -34,9 +34,7 @@ public class GameWindowController {
 
     @FXML
     private Label errorLabel;
-
     private String user;
-
     @FXML
     public void goBackLoginMenu() throws IOException {
         App.setRoot("fxml/mainwindow/MainWindow");
@@ -44,7 +42,7 @@ public class GameWindowController {
 
     @FXML
     public void executeQuery() throws SQLException, ClassNotFoundException {
-        ArrayList<ArrayList<String>> recoverInfo = new GameWindowService().executeQuery(user, inputQuery.getText());
+        ArrayList<ArrayList<String>> recoverInfo = new GameWindowService().executeQuery(new GameWindowService().getUsercode(username.getText()), inputQuery.getText());
         if (recoverInfo != null) {
             recoverInfoArea.setText("");
             List<ArrayList<String>> nasd = recoverInfo.stream().collect(Collectors.toList());
