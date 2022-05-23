@@ -40,7 +40,6 @@ public class LoginController {
                FXMLLoader fxmlLoader = App.setRoot("fxml/mainwindow/MainWindow");
                MainWindowController mainWindowController = fxmlLoader.getController();
                 mainWindowController.setUser(userTextField.getText());
-                App.setRoot("fxml/mainwindow/MainWindow");
 
             }
             else{

@@ -40,6 +40,7 @@ public class MainWindowController{
         else{
             text="";//En proceso
         }
+        System.out.println(user);
         changeWindow(text);
     }
 
@@ -51,10 +52,13 @@ public class MainWindowController{
         if(text.equals("fxml/gamewindow/GameWindow")){
             FXMLLoader fxmlLoader = App.setRoot(text);
             GameWindowController gameWindowController = fxmlLoader.getController();
+            gameWindowController.setUser(user);
             gameWindowController.getUsername().setText(user);
             gameWindowController.getUsername().setVisible(true);
         }
-        App.setRoot(text);
+        else{
+            App.setRoot(text);
+        }
     }
 
 
