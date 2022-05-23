@@ -10,6 +10,7 @@ import lombok.Setter;
 import org.login.app.App;
 import org.login.app.email.Sender;
 
+import org.login.app.jaxrsclient.dto.User;
 import org.login.app.service.RegisterService;
 
 import java.io.IOException;
@@ -48,7 +49,7 @@ public class RegisterController {
             if (!usernameField.getText().isEmpty() && !emailField.getText().isEmpty() && !passField.getText().isEmpty()
                     && !confirmPassField.getText().isEmpty()) {
                 if (checkPasswords()) {
-                    if (new RegisterService().checkDataBase(usernameField.getText())) {
+                    if (new RegisterService().registerService(User.builder().username(usernameField.getText()).password(passField.getText()).email(emailField.getText()).build())) {
                        // new RegisterClient().postRegister(User.builder().username(usernameField.getText()).password(passField.getText()).email(emailField.getText()).user_code(LocalDateTime.now().getNano()).build());
                         FXMLLoader fxmlLoader = App.setRoot("fxml/loginwindow/CompletingRegister");
                         RegisterSuccesfullyController registerSuccesfullyController = fxmlLoader.getController();

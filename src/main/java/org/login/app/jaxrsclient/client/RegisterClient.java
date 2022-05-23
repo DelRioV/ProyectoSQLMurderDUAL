@@ -23,9 +23,9 @@ public class RegisterClient {
                 .get(String.class);
     }
 
-    public User postRegister(User user) {
+    public Boolean postRegister(User user) {
         return webTarget.path("register/post")
                 .request(MediaType.APPLICATION_JSON)
-                .post(Entity.entity(user,MediaType.APPLICATION_JSON), User.class);
+                .post(Entity.entity(user,MediaType.APPLICATION_JSON),Boolean.class);
     }
 }
