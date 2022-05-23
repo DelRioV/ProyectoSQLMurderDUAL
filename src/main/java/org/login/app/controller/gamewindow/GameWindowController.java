@@ -15,14 +15,19 @@ import org.login.app.service.GameWindowService;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Array;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 
 @Getter
 @Setter
-public class GameWindowController{
+public class GameWindowController {
     @FXML
     private Label username;
 
@@ -47,21 +52,22 @@ public class GameWindowController{
 
     @FXML
     public void executeQuery() throws SQLException, ClassNotFoundException {
-       ArrayList<ArrayList<String>> recoverInfo = new GameWindowService().executeQuery(user,inputQuery.getText());
-            if (recoverInfo != null) {
-                recoverInfoArea.setText("");
-                for (ArrayList<String> i : recoverInfo) {
-                    for (String a : i) {
-                        recoverInfoArea.setText(recoverInfoArea.getText() + "   ||   " + a);
-                    }
-                    recoverInfoArea.setText(recoverInfoArea.getText() + "\n");
-                }
-                errorLabel.setVisible(false);
-            } else {
-                errorLabel.setText("You write it wrongly, care your spelling!");
-                errorLabel.setVisible(true);
+        ArrayList<ArrayList<String>> recoverInfo = new GameWindowService().executeQuery(user, inputQuery.getText());
+        if (recoverInfo != null) {
+            recoverInfoArea.setText("");
+            List<ArrayList<String>> nasd = recoverInfo.stream().collect(Collectors.toList());
+            for (ArrayList<String> strings : nasd) {
+                recoverInfoArea.setText(recoverInfoArea.getText() + String.valueOf(Arrays.asList(strings) + "\n"));
             }
+            errorLabel.setVisible(false);
+
+        } else {
+            errorLabel.setText("You write it wrongly, care your spelling!");
+            errorLabel.setVisible(true);
         }
     }
+}
+
+
 
 
