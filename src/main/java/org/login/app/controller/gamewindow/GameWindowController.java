@@ -37,6 +37,7 @@ public class GameWindowController{
     @FXML
     private Label errorLabel;
 
+    private String user;
 
     @FXML
     public void goBackLoginMenu() throws IOException {
@@ -46,7 +47,7 @@ public class GameWindowController{
     @FXML
     public void executeQuery() throws SQLException,ClassNotFoundException {
         QueryRecoverManagerImp exc = new QueryRecoverManagerImp();
-        int user_code =new UserCodeManagerImp().getUserCode(new MySQLConnector().getMySQLConnection(),user);
+        int user_code =new UserCodeManagerImp().getUserCode(new MySQLConnector().getMySQLConnection(), user);
         try {
             ArrayList<ArrayList<String>> recoverInfo = exc.executeQuery(new MySQLConnector().getMySQLConnection(), inputQuery.getText(),user_code);
             if (recoverInfo != null) {

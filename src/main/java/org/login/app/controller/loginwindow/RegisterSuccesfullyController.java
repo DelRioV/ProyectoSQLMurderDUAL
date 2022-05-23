@@ -31,9 +31,9 @@ public class RegisterSuccesfullyController {
     @Getter
     private Integer randomNumber;
 
+
     @FXML
     private void registerSuccesfull() throws IOException, SQLException, ClassNotFoundException {
-        System.out.println(confirmRegisterTextField.getText().equals(randomNumber.toString()));
         System.out.println(randomNumber);
         if(confirmRegisterTextField.getText().equals(randomNumber.toString())){
             insertUser();
