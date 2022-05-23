@@ -3,7 +3,6 @@ package org.login.app.controller.mainwindow;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,8 +10,6 @@ import org.login.app.App;
 import org.login.app.controller.gamewindow.GameWindowController;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class MainWindowController{
 

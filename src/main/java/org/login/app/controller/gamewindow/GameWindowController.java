@@ -1,28 +1,20 @@
 package org.login.app.controller.gamewindow;
 
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import lombok.Getter;
 import lombok.Setter;
 import org.login.app.App;
-import org.login.app.model.mysql.connector.MySQLConnector;
-import org.login.app.model.mysql.manager.imp.QueryRecoverManagerImp;
-import org.login.app.model.mysql.manager.imp.UserCodeManagerImp;
 import org.login.app.service.GameWindowService;
 
 import java.io.IOException;
-import java.net.URL;
-import java.sql.Array;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.ResourceBundle;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 
 @Getter

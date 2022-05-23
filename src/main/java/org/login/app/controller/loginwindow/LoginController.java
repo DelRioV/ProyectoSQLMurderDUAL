@@ -6,16 +6,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import lombok.Getter;
 import org.login.app.App;
-import org.login.app.controller.gamewindow.GameWindowController;
 import org.login.app.controller.mainwindow.MainWindowController;
-import org.login.app.model.mysql.connector.MySQLConnector;
-import org.login.app.model.mysql.manager.imp.LoginSuccesfulManagerImp;
 import org.login.app.service.LoginService;
 
 import java.io.IOException;
-import java.sql.Connection;
 import java.sql.SQLException;
 
 public class LoginController {

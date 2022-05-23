@@ -2,29 +2,18 @@ package org.login.app.controller.loginwindow;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import lombok.Getter;
 import lombok.Setter;
 import org.login.app.App;
-import org.login.app.controller.gamewindow.GameWindowController;
 import org.login.app.email.Sender;
-import org.login.app.jaxrsclient.client.RegisterClient;
-import org.login.app.jaxrsclient.dto.User;
-import org.login.app.model.mysql.connector.MySQLConnector;
-import org.login.app.model.mysql.manager.imp.RegisterManagerImp;
+
 import org.login.app.service.RegisterService;
 
 import java.io.IOException;
-import java.net.URL;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Random;
-import java.util.ResourceBundle;
 
 @Getter
 @Setter
@@ -56,7 +45,6 @@ public class RegisterController {
     @FXML
     private void registerClient() {
         try {
-            Connection connection = new MySQLConnector().getMySQLConnection();
             if (!usernameField.getText().isEmpty() && !emailField.getText().isEmpty() && !passField.getText().isEmpty()
                     && !confirmPassField.getText().isEmpty()) {
                 if (checkPasswords()) {

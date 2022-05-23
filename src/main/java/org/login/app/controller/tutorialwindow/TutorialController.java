@@ -5,17 +5,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import org.login.app.model.mysql.connector.MySQLConnector;
-import org.login.app.model.mysql.manager.imp.ModelInfoManagerImp;
 import org.login.app.App;
 import org.login.app.service.TutorialService;
 
 import java.io.IOException;
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.awt.Desktop;
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
