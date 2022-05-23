@@ -15,6 +15,7 @@ import org.login.app.jaxrsclient.client.RegisterClient;
 import org.login.app.jaxrsclient.dto.User;
 import org.login.app.model.mysql.connector.MySQLConnector;
 import org.login.app.model.mysql.manager.imp.RegisterManagerImp;
+import org.login.app.service.RegisterService;
 
 import java.io.IOException;
 import java.net.URL;
@@ -59,7 +60,7 @@ public class RegisterController {
             if (!usernameField.getText().isEmpty() && !emailField.getText().isEmpty() && !passField.getText().isEmpty()
                     && !confirmPassField.getText().isEmpty()) {
                 if (checkPasswords()) {
-                    if (checkDataBase(connection)) {
+                    if (new RegisterService().checkDataBase(usernameField.getText())) {
                        // new RegisterClient().postRegister(User.builder().username(usernameField.getText()).password(passField.getText()).email(emailField.getText()).user_code(LocalDateTime.now().getNano()).build());
                         FXMLLoader fxmlLoader = App.setRoot("fxml/loginwindow/CompletingRegister");
                         RegisterSuccesfullyController registerSuccesfullyController = fxmlLoader.getController();
@@ -92,19 +93,6 @@ public class RegisterController {
     }
 
 
-    private boolean checkDataBase(Connection connection) throws SQLException {
-        boolean kk = true;
-        try {
-            if (new RegisterManagerImp().compareRegisterQuery(connection, usernameField.getText())) {
-                kk = false;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            return kk;
-        }
-
-    }
 
     public void sentEmail(String to) {
 
