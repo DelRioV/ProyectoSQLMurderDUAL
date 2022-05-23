@@ -96,7 +96,6 @@ public class QueryRecoverManagerImp implements QueryRecoverManager {
                     updatedQuery += query.substring(0,query.indexOf("where")) + "where user_code = " + user_code + " and"+
                            query.substring(query.indexOf("where")+"where".length(),query.indexOf("("))+ query2 +
                             " where user_code = "+user_code+")";
-                    //mal
                 } else if(query.contains(")")){
                     System.out.println("Soy )");
                     updatedQuery += ""+query.substring(0,query.length()-1) + " and user_code = " + user_code + ")";
