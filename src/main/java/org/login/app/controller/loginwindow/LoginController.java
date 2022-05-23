@@ -30,8 +30,7 @@ public class LoginController {
 
     @FXML
     private void loginToTheApp() throws SQLException, ClassNotFoundException, IOException {
-        if (new LoginService().loginToTheApp(User.builder().username(userTextField.getText()).password(passwordField.getText()).build())
-        ) {
+        if (new LoginService().loginToTheApp(User.builder().username(userTextField.getText()).password(passwordField.getText()).build())) {
             System.out.println("Succesfully");
             FXMLLoader fxmlLoader = App.setRoot("fxml/mainwindow/MainWindow");
             MainWindowController mainWindowController = fxmlLoader.getController();
