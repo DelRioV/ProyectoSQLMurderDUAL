@@ -9,11 +9,9 @@ import org.login.app.App;
 import org.login.app.controller.mainwindow.MainWindowController;
 import org.login.app.jaxrsclient.client.RegisterClient;
 import org.login.app.jaxrsclient.dto.User;
-import org.login.app.model.mysql.connector.MySQLConnector;
-import org.login.app.model.mysql.manager.imp.RegisterManagerImp;
+
 
 import java.io.IOException;
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;

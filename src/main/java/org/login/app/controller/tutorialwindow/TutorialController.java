@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import org.login.app.model.mysql.connector.MySQLConnector;
 import org.login.app.model.mysql.manager.imp.ModelInfoManagerImp;
 import org.login.app.App;
+import org.login.app.service.TutorialService;
 
 import java.io.IOException;
 import java.net.URI;
@@ -16,6 +17,7 @@ import java.net.URL;
 import java.awt.Desktop;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 
@@ -39,8 +41,9 @@ public class TutorialController implements Initializable {
 
     @FXML
     private Label editableLabel;
-
-    private int counter=1;
+    private int infoCounter = -1;
+    private int counter = 1;
+    private ArrayList<String> infoRecover;
 
     @FXML
     public void switchWindow(Event event) throws IOException {
@@ -62,17 +65,17 @@ public class TutorialController implements Initializable {
 
     @FXML
     public void changeLabelText(Event event) throws SQLException, ClassNotFoundException {
-        Connection con = new MySQLConnector().getMySQLConnection();
+
         if(event.getSource()==previousButton){
-           editableLabel.setText(new ModelInfoManagerImp().changeTip(con,1));
+           editableLabel.setText(infoRecover.get(--infoCounter));
         }
         else if(event.getSource()==nextButton){
-            editableLabel.setText(new ModelInfoManagerImp().changeTip(con,1));
+            editableLabel.setText(infoRecover.get(++infoCounter));
         }
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        this.infoRecover = new TutorialService().changeTipService();
     }
 }
