@@ -12,6 +12,7 @@ import org.login.app.controller.gamewindow.GameWindowController;
 import org.login.app.controller.mainwindow.MainWindowController;
 import org.login.app.model.mysql.connector.MySQLConnector;
 import org.login.app.model.mysql.manager.imp.LoginSuccesfulManagerImp;
+import org.login.app.service.LoginService;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -33,26 +34,24 @@ public class LoginController {
 
     @FXML
     private void loginToTheApp() throws SQLException, ClassNotFoundException, IOException {
-            Connection connection = new MySQLConnector().getMySQLConnection();
-            boolean condition = new LoginSuccesfulManagerImp().executeLoginQuery(connection,userTextField.getText(),passwordField.getText());
-            if(condition){
-                System.out.println("Succesfully");
-               FXMLLoader fxmlLoader = App.setRoot("fxml/mainwindow/MainWindow");
-               MainWindowController mainWindowController = fxmlLoader.getController();
-                mainWindowController.setUser(userTextField.getText());
+        boolean condition = new LoginService().loginToTheApp(userTextField.getText(), passwordField.getText());
+        if (condition) {
+            System.out.println("Succesfully");
+            FXMLLoader fxmlLoader = App.setRoot("fxml/mainwindow/MainWindow");
+            MainWindowController mainWindowController = fxmlLoader.getController();
+            mainWindowController.setUser(userTextField.getText());
 
-            }
-            else{
-                errorMessage.setVisible(true);
-            }
+        } else {
+            errorMessage.setVisible(true);
         }
+    }
 
     @FXML
-    private void notRegister() throws IOException{
+    private void notRegister() throws IOException {
         App.setRoot("fxml/loginwindow/RegisterWindow");
     }
 
-    private void checkUser() throws SQLException{
+    private void checkUser() throws SQLException {
 
     }
 
