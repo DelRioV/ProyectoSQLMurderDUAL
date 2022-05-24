@@ -3,6 +3,7 @@ package org.login.app.service;
 import org.login.app.jaxrsclient.client.LoginClient;
 import org.login.app.jaxrsclient.client.RegisterClient;
 import org.login.app.jaxrsclient.dto.User;
+import org.login.app.pdfcreator.PdfCreator;
 
 
 import java.sql.Connection;

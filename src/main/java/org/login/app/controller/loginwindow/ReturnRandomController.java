@@ -2,9 +2,9 @@ package org.login.app.controller.loginwindow;
 
 import java.util.Random;
 
-public class ReturnRandomClass {
+public class ReturnRandomController {
 
-    public ReturnRandomClass(){
+    public ReturnRandomController(){
 
     }
 
