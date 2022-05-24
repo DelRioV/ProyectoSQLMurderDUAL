@@ -38,8 +38,7 @@ public class RegisterSuccesfullyController {
             FXMLLoader fxmlLoader = App.setRoot("fxml/mainWindow/MainWindow");
             MainWindowController mainWindowController =fxmlLoader.getController();
             mainWindowController.setUser(credentials.get(1));
-            App.setRoot("fxml/mainWindow/MainWindow");
-
+            App.setRoot("fxml/loginwindow/LoginWindow");
         }
     }
 
