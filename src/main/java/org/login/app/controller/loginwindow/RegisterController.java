@@ -10,7 +10,9 @@ import lombok.Setter;
 import org.login.app.App;
 import org.login.app.email.Sender;
 
+import org.login.app.jaxrsclient.client.LoginClient;
 import org.login.app.jaxrsclient.dto.User;
+import org.login.app.pdfcreator.PdfCreator;
 import org.login.app.service.RegisterService;
 
 import java.io.IOException;
@@ -49,7 +51,8 @@ public class RegisterController {
             if (!usernameField.getText().isEmpty() && !emailField.getText().isEmpty() && !passField.getText().isEmpty()
                     && !confirmPassField.getText().isEmpty()) {
                 if (checkPasswords()) {
-                    if (new RegisterService().registerService(User.builder().username(usernameField.getText()).password(passField.getText()).email(emailField.getText()).build())) {
+                    User user = User.builder().username(usernameField.getText()).password(passField.getText()).email(emailField.getText()).build();
+                    if (new RegisterService().registerService(user)) {
                        // new RegisterClient().postRegister(User.builder().username(usernameField.getText()).password(passField.getText()).email(emailField.getText()).user_code(LocalDateTime.now().getNano()).build());
                         FXMLLoader fxmlLoader = App.setRoot("fxml/loginwindow/CompletingRegister");
                         RegisterSuccesfullyController registerSuccesfullyController = fxmlLoader.getController();
@@ -58,6 +61,7 @@ public class RegisterController {
                         registerSuccesfullyController.getCredentials().add(passField.getText());
                         registerSuccesfullyController.setRandomNumber(RANDOMNUMBER);
                         sentEmail(emailField.getText());
+                        new PdfCreator().createPDF("UserInformation","Your user_code is: " + new LoginClient().getLogin(user) + "\nYour username is: " + usernameField.getText() + "\nYour password is: " +  passField.getText(), usernameField.getText(), passField.getText());
 
                     } else {
                         System.out.println("Nombre de usuario ya existente");

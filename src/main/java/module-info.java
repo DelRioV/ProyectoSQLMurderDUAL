@@ -8,6 +8,7 @@ module org.login.app {
     requires jakarta.xml.bind;
     requires jakarta.activation;
     requires jakarta.mail;
+    requires itextpdf;
 
 
     exports org.login.app;
