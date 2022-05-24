@@ -39,7 +39,7 @@ public class RegisterController {
     @FXML
     private PasswordField confirmPassField;
 
-    private final static Integer RANDOMNUMBER = new ReturnRandomClass().generateRandomNumber();
+    private final static Integer RANDOMNUMBER = new ReturnRandomController().generateRandomNumber();
 
     private ArrayList<String> credentials = new ArrayList<>();
 

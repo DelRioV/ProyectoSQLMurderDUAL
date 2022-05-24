@@ -35,13 +35,23 @@ public class GameWindowController {
     @FXML
     private Label errorLabel;
     private String user;
+    private int user_code;
+    private String text;
+
+    public GameWindowController(int use_code,String text){
+        username = new Label();
+        inputQuery = new TextArea();
+        this.username.setText(String.valueOf(user_code));
+        this.inputQuery.setText(text);
+    }
     @FXML
     public void goBackLoginMenu() throws IOException {
         App.setRoot("fxml/mainwindow/MainWindow");
     }
 
     @FXML
-    public void executeQuery() throws SQLException, ClassNotFoundException {
+    public boolean executeQuery() throws SQLException, ClassNotFoundException {
+
         ArrayList<ArrayList<String>> recoverInfo = new GameWindowService().executeQuery(new GameWindowService().getUsercode(username.getText()), inputQuery.getText());
         if (recoverInfo != null) {
             recoverInfoArea.setText("");
@@ -50,10 +60,11 @@ public class GameWindowController {
                 recoverInfoArea.setText(recoverInfoArea.getText() + String.valueOf(Arrays.asList(strings) + "\n"));
             }
             errorLabel.setVisible(false);
-
+            return true;
         } else {
             errorLabel.setText("You write it wrongly, care your spelling!");
             errorLabel.setVisible(true);
+            return false;
         }
     }
 }
