@@ -61,13 +61,16 @@ public class TutorialController implements Initializable {
 
     @FXML
     public void changeLabelText(Event event) throws SQLException, ClassNotFoundException {
-
-        if(event.getSource()==previousButton){
-           editableLabel.setText(infoRecover.get(--infoCounter));
-        }
-        else if(event.getSource()==nextButton){
+    try {
+        if (event.getSource() == previousButton) {
+            editableLabel.setText(infoRecover.get(--infoCounter));
+        } else if (event.getSource() == nextButton) {
             editableLabel.setText(infoRecover.get(++infoCounter));
         }
+    }
+    catch (Exception e){
+
+    }
     }
 
     @Override
