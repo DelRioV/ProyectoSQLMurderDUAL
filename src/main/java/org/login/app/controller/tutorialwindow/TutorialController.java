@@ -43,15 +43,15 @@ public class TutorialController implements Initializable {
 
     @FXML
     public void switchWindow(Event event) throws IOException {
-        if(event.getSource()==alreadyNow){
+        if (event.getSource() == alreadyNow) {
             counter++;
         }
-        App.setRoot("fxml/tutorialwindow/TutorialWindow"+counter);
+        App.setRoot("fxml/tutorialwindow/TutorialWindow" + counter);
 
     }
 
     @FXML
-    public void getSqlTutorialLink(){
+    public void getSqlTutorialLink() {
         try {
             Desktop.getDesktop().browse(new URI("https://www.w3schools.com/sql/default.asp"));
         } catch (Exception ex) {
@@ -61,16 +61,15 @@ public class TutorialController implements Initializable {
 
     @FXML
     public void changeLabelText(Event event) throws SQLException, ClassNotFoundException {
-    try {
-        if (event.getSource() == previousButton) {
-            editableLabel.setText(infoRecover.get(--infoCounter));
-        } else if (event.getSource() == nextButton) {
-            editableLabel.setText(infoRecover.get(++infoCounter));
-        }
-    }
-    catch (Exception e){
+        try {
+            if (event.getSource() == previousButton && infoCounter > 0) {
+                editableLabel.setText(infoRecover.get(--infoCounter));
+            } else if (event.getSource() == nextButton && infoCounter < 5) {
+                editableLabel.setText(infoRecover.get(++infoCounter));
+            }
+        } catch (Exception e) {
 
-    }
+        }
     }
 
     @Override

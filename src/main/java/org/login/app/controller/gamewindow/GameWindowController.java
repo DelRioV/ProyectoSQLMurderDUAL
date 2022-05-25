@@ -38,12 +38,7 @@ public class GameWindowController {
     private int user_code;
     private String text;
 
-    public GameWindowController(int use_code,String text){
-        username = new Label();
-        inputQuery = new TextArea();
-        this.username.setText(String.valueOf(user_code));
-        this.inputQuery.setText(text);
-    }
+
     @FXML
     public void goBackLoginMenu() throws IOException {
         App.setRoot("fxml/mainwindow/MainWindow");
@@ -55,10 +50,9 @@ public class GameWindowController {
         ArrayList<ArrayList<String>> recoverInfo = new GameWindowService().executeQuery(new GameWindowService().getUsercode(username.getText()), inputQuery.getText());
         if (recoverInfo != null) {
             recoverInfoArea.setText("");
-            List<ArrayList<String>> nasd = recoverInfo.stream().collect(Collectors.toList());
-            for (ArrayList<String> strings : nasd) {
-                recoverInfoArea.setText(recoverInfoArea.getText() + String.valueOf(Arrays.asList(strings) + "\n"));
-            }
+            recoverInfo.stream().collect(Collectors.toList()).forEach(strings -> {
+                recoverInfoArea.setText(recoverInfoArea.getText() + Arrays.asList(strings) + "\n");
+            });
             errorLabel.setVisible(false);
             return true;
         } else {
