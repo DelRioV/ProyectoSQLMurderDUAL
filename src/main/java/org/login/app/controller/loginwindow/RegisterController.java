@@ -19,8 +19,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
- * @Author: Pablo Salvador Del Río Vergara / Ismael Orellana Bello
- * @Version: 1.0
+ * <p>RegisterController class.</p>
+ *
+ * @author : Pablo Salvador Del Río Vergara / Ismael Orellana Bello
+ * @version : 1.0
  * Class that controlls RegisterWindow.fxml
  */
 @Getter
@@ -121,7 +123,6 @@ public class RegisterController {
      */
     @FXML
     private void goBack() throws IOException {
-        System.out.println(App.class.getResource(""));
         App.setRoot("fxml/loginwindow/LoginWindow");
     }
 

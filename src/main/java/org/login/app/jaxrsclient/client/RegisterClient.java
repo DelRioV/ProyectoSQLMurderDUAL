@@ -7,6 +7,13 @@ import jakarta.ws.rs.client.WebTarget;
 import jakarta.ws.rs.core.MediaType;
 import org.login.app.jaxrsclient.dto.User;
 
+/**
+ * <p>GameWindowClient class.</p>
+ *
+ * @author : Pablo Salvador Del Río Vergara / Ismael Orellana Bello
+ * @version : 1.0
+ * Class that connects to the web service ("api/register)
+ */
 public class RegisterClient {
 
     private final WebTarget webTarget;
@@ -23,11 +30,12 @@ public class RegisterClient {
      * Method that connect with .post webservice
      *
      * @param user - User
-     * @return<ol> <li>boolean true - when is correctly registered </li>
-     * <li>boolean false - when can´t be registered due to an error</li>
+     * @return
+     * <ol>
+     *     <li>boolean true - when is correctly registered </li>
+     *     <li>boolean false - when can´t be registered due to an error</li>
      * </ol>
      */
-
     public Boolean postRegister(User user) {
         return webTarget.path("register/post")
                 .request(MediaType.APPLICATION_JSON)

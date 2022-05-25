@@ -8,8 +8,10 @@ import jakarta.ws.rs.core.MediaType;
 import java.util.ArrayList;
 
 /**
- * @Author: Pablo Salvador Del Río Vergara / Ismael Orellana Bello
- * @Version: 1.0
+ * <p>GameWindowClient class.</p>
+ *
+ * @author : Pablo Salvador Del Río Vergara / Ismael Orellana Bello
+ * @version : 1.0
  * Class that connects to the web service ("api/game")
  */
 public class GameWindowClient {
@@ -29,7 +31,7 @@ public class GameWindowClient {
      *
      * @param query     - String (the query that wants to be executed)
      * @param user_code - int (the user_code who is using the program
-     * @return ArrayList<ArrayList < String>> (The information that results from the execution of the query)
+     * @return ArrayList (The information that results from the execution of the query)
      */
     public ArrayList<ArrayList<String>> getLogin(String query, int user_code) {
         return webTarget.path("game/get/" + query + "/" + user_code)

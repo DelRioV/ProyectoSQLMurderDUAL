@@ -17,19 +17,15 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 /**
- * @Author: Pablo Salvador Del Río Vergara / Ismael Orellana Bello
- * @Version: 1.0
+ * <p>TutorialController class.</p>
+ *
+ * @author : Pablo Salvador Del Río Vergara / Ismael Orellana Bello
+ * @version : 1.0
  * Class that controlls TutorialWindow.fxml
  */
-
 public class TutorialController implements Initializable {
 
 
-    @FXML
-    private Button tutorialButton_1;
-
-    @FXML
-    private Button sqlTutorial;
 
     @FXML
     private Button alreadyNow;
@@ -50,7 +46,7 @@ public class TutorialController implements Initializable {
      * Method that switch the window, depends on the counter inside this class
      *
      * @param event - the one who has activate the Event
-     * @throws IOException
+     * @throws java.io.IOException - in some circunstancies
      */
     @FXML
     public void switchWindow(Event event) throws IOException {
@@ -77,8 +73,8 @@ public class TutorialController implements Initializable {
      * Method that depends on the counter set one or other text to the window
      *
      * @param event - the one who has activate the Event
-     * @throws SQLException
-     * @throws ClassNotFoundException
+     * @throws java.sql.SQLException - in some circunstancies
+     * @throws java.lang.ClassNotFoundException - in some circunstancies
      */
     @FXML
     public void changeLabelText(Event event) throws SQLException, ClassNotFoundException {
@@ -94,10 +90,9 @@ public class TutorialController implements Initializable {
     }
 
     /**
-     * Method that initialize
+     * {@inheritDoc}
      *
-     * @param url
-     * @param resourceBundle
+     * Method that initialize
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

@@ -4,8 +4,10 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 import lombok.*;
 
 /**
- * @Author: Ismael Orellana Bello / Pablo Salvador Del Río Vergara
- * @Version: 1.0
+ * <p>User class.</p>
+ *
+ * @author : Ismael Orellana Bello / Pablo Salvador Del Río Vergara
+ * @version : 1.0
  * Class that keeps the user information
  */
 @Data

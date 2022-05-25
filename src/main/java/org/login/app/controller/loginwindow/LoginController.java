@@ -15,8 +15,10 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 /**
- * @Author: Pablo Salvador Del Río Vergara / Ismael Orellana Bello
- * @Version: 1.0
+ * <p>LoginController class.</p>
+ *
+ * @author Pablo Salvador Del Río Vergara / Ismael Orellana Bello
+ * @version 1.0
  * Class that controlls LoginWindow.fxml
  */
 public class LoginController {

@@ -8,8 +8,10 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 /**
- * @Author: Ismael Orellana Bello / Pablo Salvador Del Río Vergara
- * @Version: 1.0
+ * <p>App class.</p>
+ *
+ * @author  Ismael Orellana Bello / Pablo Salvador Del Río Vergara
+ * @version  1.0
  * Class that launches the program(first JavaFx)
  * JavaFX org.login.app.App
  */
@@ -19,10 +21,9 @@ public class App extends Application {
     private static Stage stage;
 
     /**
-     * Methos that create the stage and set the scene
+     * {@inheritDoc}
      *
-     * @param stage - Stage
-     * @throws IOException
+     * Methos that create the stage and set the scene
      */
     @Override
     public void start(Stage stage) throws IOException {
@@ -38,7 +39,7 @@ public class App extends Application {
      *
      * @param fxml - String (file which is going to be search)
      * @return FXMLLoader
-     * @throws IOException
+     * @throws java.io.IOException - in some circunstacies
      */
     public static FXMLLoader setRoot(String fxml) throws IOException {
         FXMLLoader fxmlLoader = loadFXML(fxml);
@@ -63,7 +64,7 @@ public class App extends Application {
     /**
      * Method which launch the JavaFx
      *
-     * @param args
+     * @param args an array of {@link java.lang.String} objects
      */
     public static void main(String[] args) {
         launch();

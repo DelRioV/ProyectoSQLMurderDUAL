@@ -4,11 +4,12 @@ import org.login.app.jaxrsclient.client.RegisterClient;
 import org.login.app.jaxrsclient.dto.User;
 
 /**
- * @Author: Pablo Salvador Del Rio Vergara / Ismael Orellana Bello
- * @Version: 1.0
+ * <p>RegisterService class.</p>
+ *
+ * @author  Pablo Salvador Del Rio Vergara / Ismael Orellana Bello
+ * @version  1.0
  * Class which is use as a connection between controller and client
  */
-
 public class RegisterService {
     /**
      * Method that connects with the client

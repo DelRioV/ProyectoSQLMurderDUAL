@@ -12,8 +12,10 @@ import java.io.*;
 import java.util.Properties;
 
 /**
- * @Author: Ismael Orellano Bello / Pablo Salvador Del Rio Vergara
- * @Version: 1.0
+ * <p>Sender class.</p>
+ *
+ * @author : Ismael Orellano Bello / Pablo Salvador Del Rio Vergara
+ * @version : 1.0
  * Class that sends out the email
  */
 public class Sender {

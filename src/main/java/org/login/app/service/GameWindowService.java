@@ -7,8 +7,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
- * @Author: Pablo Salvador Del Rio Vergara / Ismael Orellana Bello
- * @Version: 1.0
+ * <p>GameWindowService class.</p>
+ *
+ * @author  Pablo Salvador Del Rio Vergara / Ismael Orellana Bello
+ * @version  1.0
  * Class which is use as a connection between controller and client
  */
 public class GameWindowService {
@@ -17,9 +19,9 @@ public class GameWindowService {
      *
      * @param usercode - int
      * @param query    - String
-     * @return ArrayList<ArrayList < String>> - (results of the query)
-     * @throws SQLException
-     * @throws ClassNotFoundException
+     * @return ArrayList - (results of the query)
+     * @throws java.sql.SQLException - in some circunstancies
+     * @throws java.lang.ClassNotFoundException - in some circunstancies
      */
     public ArrayList<ArrayList<String>> executeQuery(int usercode, String query) throws SQLException, ClassNotFoundException {
         return new GameWindowClient().getLogin(query, usercode);

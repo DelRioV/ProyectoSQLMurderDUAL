@@ -4,8 +4,10 @@ import org.login.app.jaxrsclient.client.LoginClient;
 import org.login.app.jaxrsclient.dto.User;
 
 /**
- * @Author: Pablo Salvador Del Rio Vergara / Ismael Orellana Bello
- * @Version: 1.0
+ * <p>LoginService class.</p>
+ *
+ * @author  Pablo Salvador Del Rio Vergara / Ismael Orellana Bello
+ * @version  1.0
  * Class which is use as a connection between controller and client
  */
 public class LoginService {

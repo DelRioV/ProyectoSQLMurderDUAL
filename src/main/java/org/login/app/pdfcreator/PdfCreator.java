@@ -10,8 +10,10 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 /**
- * @Author: Ismael Orellana Bello / Pablo Salvador Del Río Vergara
- * @Version: 1.0
+ * <p>PdfCreator class.</p>
+ *
+ * @author : Ismael Orellana Bello / Pablo Salvador Del Río Vergara
+ * @version : 1.0
  * Class that creates the pdf
  */
 public class PdfCreator {
@@ -22,9 +24,9 @@ public class PdfCreator {
      * @param text     - String
      * @param user     - String
      * @param password - String
-     * @throws IOException
-     * @throws DocumentException
-     * @throws URISyntaxException
+     * @throws java.io.IOException - in some circunstancies
+     * @throws com.itextpdf.text.DocumentException - in some circunstancies
+     * @throws java.net.URISyntaxException - in some circunstancies
      */
     public void createPDF(String fileName, String text, String user, String password) throws IOException, DocumentException, URISyntaxException {
 

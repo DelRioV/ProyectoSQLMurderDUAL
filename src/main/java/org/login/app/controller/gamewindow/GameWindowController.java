@@ -17,8 +17,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * @Author: Pablo Salvador Del Río Vergara / Ismael Orellana Bello
- * @Version: 1.0
+ * <p>GameWindowController class.</p>
+ *
+ * @author Pablo Salvador Del Río Vergara / Ismael Orellana Bello
+ * @version 1.0
  * Class that controlls GameWindow.fxml
  */
 @Getter
@@ -44,7 +46,8 @@ public class GameWindowController {
 
     /**
      * Method that takes back to MainWindow.fxml
-     * @throws IOException - in case there is an error when loading the window
+     *
+     * @throws java.io.IOException - in some circunstances
      */
     @FXML
     public void goBackLoginMenu() throws IOException {
@@ -53,12 +56,13 @@ public class GameWindowController {
 
     /**
      * Method that execute the query that was written in GameWindow.fxml
+     *
      * @return <ol>
      *     <li>boolean true - when is correctly execute </li>
      *     <li>boolean false - when can´t be executed due to an error</li>
      * </ol>
-     * @throws SQLException
-     * @throws ClassNotFoundException
+     * @throws java.sql.SQLException - in some circunstacies
+     * @throws java.lang.ClassNotFoundException - in some circunstacies
      */
     @FXML
     public boolean executeQuery() throws SQLException, ClassNotFoundException {

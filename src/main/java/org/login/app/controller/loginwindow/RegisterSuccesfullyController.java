@@ -17,8 +17,10 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 /**
- * @Author: Pablo Salvador Del Río Vergara / Ismael Orellana Bello
- * @Version: 1.0
+ * <p>RegisterSuccesfullyController class.</p>
+ *
+ * @author Pablo Salvador Del Río Vergara / Ismael Orellana Bello
+ * @version 1.0
  * Class that controlls CompletingRegister.fxml
  */
 public class RegisterSuccesfullyController {
@@ -54,7 +56,7 @@ public class RegisterSuccesfullyController {
     /**
      * Method that calls postRegister()
      *
-     * @throws SQLException
+     * @throws java.sql.SQLException - in some circunstancies
      */
     public void insertUser() throws SQLException {
         new RegisterClient().postRegister(User.builder().username(credentials.get(1)).password(credentials.get(2)).email(credentials.get(0)).user_code(LocalDateTime.now().getNano()).build());

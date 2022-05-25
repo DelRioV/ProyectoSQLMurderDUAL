@@ -6,6 +6,13 @@ import jakarta.ws.rs.client.WebTarget;
 import jakarta.ws.rs.core.MediaType;
 import org.login.app.jaxrsclient.dto.User;
 
+/**
+ * <p>GameWindowClient class.</p>
+ *
+ * @author : Pablo Salvador Del Río Vergara / Ismael Orellana Bello
+ * @version : 1.0
+ * Class that connects to the web service ("api/login")
+ */
 public class LoginClient {
     private final WebTarget webTarget;
 
@@ -18,9 +25,10 @@ public class LoginClient {
     }
 
     /**
+     * <p>getLogin.</p>
+     *
      * @param user - User
      * @return <ol>
-     * <ol>
      *     <li>boolean true - when is correctly execute </li>
      *     <li>boolean false - when can´t be executed due to an error</li>
      * </ol>

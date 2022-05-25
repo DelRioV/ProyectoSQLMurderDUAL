@@ -12,8 +12,10 @@ import org.login.app.controller.gamewindow.GameWindowController;
 import java.io.IOException;
 
 /**
- * @Author: Pablo Salvador Del Río Vergara / Ismael Orellana Bello
- * @Version: 1.0
+ * <p>MainWindowController class.</p>
+ *
+ * @author : Pablo Salvador Del Río Vergara / Ismael Orellana Bello
+ * @version : 1.0
  * Class that controlls MainWindow.fxml
  */
 public class MainWindowController {

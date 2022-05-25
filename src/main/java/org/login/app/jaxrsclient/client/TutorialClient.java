@@ -7,6 +7,13 @@ import jakarta.ws.rs.core.MediaType;
 
 import java.util.ArrayList;
 
+/**
+ * <p>GameWindowClient class.</p>
+ *
+ * @author : Pablo Salvador Del Río Vergara / Ismael Orellana Bello
+ * @version : 1.0
+ * Class that connects to the web service ("api/tutorial")
+ */
 public class TutorialClient {
 
     private final WebTarget webTarget;
@@ -22,7 +29,7 @@ public class TutorialClient {
     /**
      * Method that connects with webservice
      *
-     * @return ArrayList<String> - information about model
+     * @return ArrayList - information about model
      */
     public ArrayList<String> getInfo() {
 
