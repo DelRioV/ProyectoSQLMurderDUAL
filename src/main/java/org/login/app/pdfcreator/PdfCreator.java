@@ -3,17 +3,29 @@ package org.login.app.pdfcreator;
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.*;
 
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.stream.Stream;
 
-
+/**
+ * @Author: Ismael Orellana Bello / Pablo Salvador Del Río Vergara
+ * @Version: 1.0
+ * Class that creates the pdf
+ */
 public class PdfCreator {
-
+    /**
+     * Method which creates the pdf
+     *
+     * @param fileName - String
+     * @param text     - String
+     * @param user     - String
+     * @param password - String
+     * @throws IOException
+     * @throws DocumentException
+     * @throws URISyntaxException
+     */
     public void createPDF(String fileName, String text, String user, String password) throws IOException, DocumentException, URISyntaxException {
 
         Path path = Paths.get(ClassLoader.getSystemResource("SQLIcon.png").toURI());
@@ -32,12 +44,26 @@ public class PdfCreator {
 
     }
 
+    /**
+     * Method which creates the image that is going to be in the pdf
+     *
+     * @param path - Path
+     * @return image - Image
+     * @throws BadElementException
+     * @throws IOException
+     */
     private Image createImage(Path path) throws BadElementException, IOException {
         Image image = Image.getInstance(path.toAbsolutePath().toString());
         image.scalePercent(40);
         return image;
     }
 
+    /**
+     * Method which create and return the text which is going to be written in pdf
+     *
+     * @param text - Stirng
+     * @return paragraph - Paragraph
+     */
     private Paragraph createParagraph(String text) {
         Font font = FontFactory.getFont(FontFactory.COURIER, 16, BaseColor.RED);
         Paragraph paragraph = new Paragraph(text, font);

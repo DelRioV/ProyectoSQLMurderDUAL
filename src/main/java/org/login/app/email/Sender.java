@@ -11,16 +11,23 @@ import lombok.Setter;
 import java.io.*;
 import java.util.Properties;
 
-
+/**
+ * @Author: Ismael Orellano Bello / Pablo Salvador Del Rio Vergara
+ * @Version: 1.0
+ * Class that sends out the email
+ */
 public class Sender {
 
     @Setter
     @Getter
-    Properties mailProp = new Properties();
+    private Properties mailProp = new Properties();
     @Setter
     @Getter
-    Properties credentialProp = new Properties();
+    private Properties credentialProp = new Properties();
 
+    /**
+     * Constructor that loads the credential within CredentialsConstants.java
+     */
     public Sender() {
         try {
             // Loads all the properties of file "mail.properties".
@@ -31,27 +38,28 @@ public class Sender {
         }
     }
 
+    /**
+     * Method that create the email and send it
+     *
+     * @param from    - String (Emisor)
+     * @param to      - String (Remitent)
+     * @param subject - String (the subject of the email)
+     * @param content - String (the text inside it)
+     * @return <ol>
+     * <li>boolean true - when is correctly send </li>
+     * <li>boolean false - when can´t be send due to an error</li>
+     * </ol>
+     */
     public boolean send(String from, String to, String subject, String content) {
         // Get the Session object.// and pass username and password
         Session session = createSession();
         try {
-            // Create a default MimeMessage object.
-            System.out.println("Me ejecuto");
             MimeMessage message = new MimeMessage(session);
-            // Set From: header field of the header.
             message.setFrom(new InternetAddress(from));
-            // Set To: header field of the header.
-            System.out.println("Me ejecuto 2");
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
-            // Set Subject: header field
             message.setSubject(subject);
-            // Now set the actual message
-            System.out.println("Me ejecuto 3");
             message.setContent(content, "text/html");
-            System.out.println("sending...");
-            // Send message
             Transport.send(message);
-            System.out.println("Sent message successfully....");
             return true;
         } catch (MessagingException mex) {
             mex.printStackTrace();
@@ -60,6 +68,11 @@ public class Sender {
 
     }
 
+    /**
+     * Method that creates the session for send the email
+     *
+     * @return session - Session
+     */
     private Session createSession() {
         Session session = Session.getInstance(mailProp, new jakarta.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
@@ -67,15 +80,9 @@ public class Sender {
                         credentialProp.getProperty(CredentialsConstants.PASSWD));
             }
         });
-        // Used to debug SMTP issues
         session.setDebug(true);
         return session;
     }
 
-
-    public static void main(String[] args) throws FileNotFoundException, IOException {
-        new Sender().send("sqlmurderproyect@gmail.com", "pabloskydelriovergara@gmail.com", "Hola =D",
-                "<b>Te mando un saludo desde java<b>");
-    }
 
 }
