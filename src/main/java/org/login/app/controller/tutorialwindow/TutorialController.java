@@ -52,6 +52,7 @@ public class TutorialController implements Initializable {
     private Label editableLabel;
     private int infoCounter = -1;
     private int counter = 1;
+    private int user_code;
     private ArrayList<String> infoRecover;
 
     /**
@@ -102,7 +103,7 @@ public class TutorialController implements Initializable {
     public void changeToGameWindow() throws IOException {
         FXMLLoader fxmlLoader = App.setRoot("fxml/mainwindow/MainWindow");
         MainWindowController mainWindowController = fxmlLoader.getController();
-        mainWindowController.setUser(user_code);
+        mainWindowController.setUser(String.valueOf(user_code));
     }
 
     /**

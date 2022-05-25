@@ -66,7 +66,7 @@ public class MainWindowController {
         } else if(text.equals("fxml/tutorialwindow/originTutorialWindow")){
            FXMLLoader fxmlLoader =  App.setRoot(text);
            TutorialController tutorialController = fxmlLoader.getController();
-           tutorialController.setUser_code(user);
+           tutorialController.setUser_code(Integer.parseInt(user));
         }
     }
 
