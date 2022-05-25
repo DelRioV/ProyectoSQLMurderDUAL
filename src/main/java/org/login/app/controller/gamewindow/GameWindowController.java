@@ -1,11 +1,13 @@
 package org.login.app.controller.gamewindow;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import lombok.Getter;
 import lombok.Setter;
 import org.login.app.App;
+import org.login.app.controller.mainwindow.MainWindowController;
 import org.login.app.service.GameWindowService;
 
 import java.io.IOException;
@@ -41,7 +43,9 @@ public class GameWindowController {
 
     @FXML
     public void goBackLoginMenu() throws IOException {
-        App.setRoot("fxml/mainwindow/MainWindow");
+        FXMLLoader fxmlLoader = App.setRoot("fxml/mainwindow/MainWindow");
+        MainWindowController mainWindowController = fxmlLoader.getController();
+        mainWindowController.setUser(String.valueOf(user_code));
     }
 
     @FXML

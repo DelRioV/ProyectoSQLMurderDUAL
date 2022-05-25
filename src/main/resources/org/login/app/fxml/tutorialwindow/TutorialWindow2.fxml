@@ -15,5 +15,6 @@
             <Font name="Berlin Sans FB" size="17.0" />
          </font>
       </Label>
+      <Button fx:id="playButton" layoutX="290.0" layoutY="360.0" mnemonicParsing="false" onAction="#changeToGameWindow" prefHeight="57.0" prefWidth="121.0" style="-fx-background-color: #EAF2E3; -fx-background-radius: 12%; -fx-border-radius: 12%; -fx-border-width: 3px;"  text="Go Play!"/>
    </children>
 </AnchorPane>

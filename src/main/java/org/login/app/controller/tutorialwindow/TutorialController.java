@@ -2,10 +2,14 @@ package org.login.app.controller.tutorialwindow;
 
 import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import lombok.Getter;
+import lombok.Setter;
 import org.login.app.App;
+import org.login.app.controller.mainwindow.MainWindowController;
 import org.login.app.service.TutorialService;
 
 import java.io.IOException;
@@ -17,6 +21,8 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 
+@Getter
+@Setter
 public class TutorialController implements Initializable {
 
 
@@ -35,19 +41,17 @@ public class TutorialController implements Initializable {
     @FXML
     private Button nextButton;
 
+    private String user_code;
     @FXML
     private Label editableLabel;
     private int infoCounter = -1;
-    private int counter = 1;
     private ArrayList<String> infoRecover;
 
     @FXML
     public void switchWindow(Event event) throws IOException {
-        if (event.getSource() == alreadyNow) {
-            counter++;
-        }
-        App.setRoot("fxml/tutorialwindow/TutorialWindow" + counter);
-
+        FXMLLoader fxmlLoader = App.setRoot("fxml/tutorialwindow/TutorialWindow2");
+        TutorialController tutorialController = fxmlLoader.getController();
+        tutorialController.setUser_code(user_code);
     }
 
     @FXML
@@ -70,6 +74,12 @@ public class TutorialController implements Initializable {
         } catch (Exception e) {
 
         }
+    }
+    @FXML
+    public void changeToGameWindow() throws IOException {
+        FXMLLoader fxmlLoader = App.setRoot("fxml/mainwindow/MainWindow");
+        MainWindowController mainWindowController = fxmlLoader.getController();
+        mainWindowController.setUser(user_code);
     }
 
     @Override
