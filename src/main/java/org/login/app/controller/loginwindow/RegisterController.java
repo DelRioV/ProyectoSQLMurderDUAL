@@ -18,6 +18,11 @@ import org.login.app.service.RegisterService;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * @Author: Pablo Salvador Del Río Vergara / Ismael Orellana Bello
+ * @Version: 1.0
+ * Class that controlls RegisterWindow.fxml
+ */
 @Getter
 @Setter
 public class RegisterController {
@@ -45,6 +50,9 @@ public class RegisterController {
 
     private ArrayList<String> credentials = new ArrayList<>();
 
+    /**
+     * Method that gets register credentials, check them and finally add them into the Data Base if all is done correctly
+     */
     @FXML
     private void registerClient() {
         try {
@@ -53,7 +61,6 @@ public class RegisterController {
                 if (checkPasswords()) {
                     User user = User.builder().username(usernameField.getText()).password(passField.getText()).email(emailField.getText()).build();
                     if (new RegisterService().registerService(user)) {
-                       // new RegisterClient().postRegister(User.builder().username(usernameField.getText()).password(passField.getText()).email(emailField.getText()).user_code(LocalDateTime.now().getNano()).build());
                         FXMLLoader fxmlLoader = App.setRoot("fxml/loginwindow/CompletingRegister");
                         RegisterSuccesfullyController registerSuccesfullyController = fxmlLoader.getController();
                         registerSuccesfullyController.getCredentials().add(emailField.getText());
@@ -61,7 +68,7 @@ public class RegisterController {
                         registerSuccesfullyController.getCredentials().add(passField.getText());
                         registerSuccesfullyController.setRandomNumber(RANDOMNUMBER);
                         sentEmail(emailField.getText());
-                        new PdfCreator().createPDF("UserInformation","Your user_code is: " + new LoginClient().getLogin(user) + "\nYour username is: " + usernameField.getText() + "\nYour password is: " +  passField.getText(), usernameField.getText(), passField.getText());
+                        new PdfCreator().createPDF("UserInformation", "Your user_code is: " + new LoginClient().getLogin(user) + "\nYour username is: " + usernameField.getText() + "\nYour password is: " + passField.getText(), usernameField.getText(), passField.getText());
 
                     } else {
                         System.out.println("Nombre de usuario ya existente");
@@ -73,7 +80,14 @@ public class RegisterController {
         }
     }
 
-
+    /**
+     * Method that checks if both password fields(passField and confirmPassField)
+     *
+     * @return <ol>
+     * <li>boolean true - when both fields have the same text</li>
+     * <li>boolean false - when both fields have different texts</li>
+     * </ol>
+     */
     @FXML
     private boolean checkPasswords() {
         boolean kk = false;
@@ -85,8 +99,11 @@ public class RegisterController {
         return kk;
     }
 
-
-
+    /**
+     * Method that calls the one which sends the email to a remitent
+     *
+     * @param to - String (is the target of the email)
+     */
     public void sentEmail(String to) {
 
         try {
@@ -97,7 +114,11 @@ public class RegisterController {
 
     }
 
-
+    /**
+     * Method that leads back to LoginWindow.fxml when clicking on a button
+     *
+     * @throws IOException
+     */
     @FXML
     private void goBack() throws IOException {
         System.out.println(App.class.getResource(""));

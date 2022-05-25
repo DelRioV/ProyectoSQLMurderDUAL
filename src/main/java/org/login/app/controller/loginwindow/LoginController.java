@@ -14,6 +14,11 @@ import org.login.app.service.LoginService;
 import java.io.IOException;
 import java.sql.SQLException;
 
+/**
+ * @Author: Pablo Salvador Del Río Vergara / Ismael Orellana Bello
+ * @Version: 1.0
+ * Class that controlls LoginWindow.fxml
+ */
 public class LoginController {
 
     @FXML
@@ -28,6 +33,13 @@ public class LoginController {
     @FXML
     private Label errorMessage;
 
+    /**
+     * Method that confirms login credentials and let access to MainWindow.fxml
+     *
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     * @throws IOException
+     */
     @FXML
     private void loginToTheApp() throws SQLException, ClassNotFoundException, IOException {
         if (new LoginService().loginToTheApp(User.builder().username(userTextField.getText()).password(passwordField.getText()).build())) {
@@ -41,13 +53,14 @@ public class LoginController {
         }
     }
 
+    /**
+     * Method that leads you to RegisterWindow.fxml when clicking on a button
+     *
+     * @throws IOException
+     */
     @FXML
     private void notRegister() throws IOException {
         App.setRoot("fxml/loginwindow/RegisterWindow");
-    }
-
-    private void checkUser() throws SQLException {
-
     }
 
 }

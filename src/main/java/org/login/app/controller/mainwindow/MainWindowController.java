@@ -11,6 +11,11 @@ import org.login.app.controller.gamewindow.GameWindowController;
 
 import java.io.IOException;
 
+/**
+ * @Author: Pablo Salvador Del Río Vergara / Ismael Orellana Bello
+ * @Version: 1.0
+ * Class that controlls MainWindow.fxml
+ */
 public class MainWindowController {
 
     @Getter
@@ -23,23 +28,31 @@ public class MainWindowController {
     @FXML
     private Button startTutorialButton;
 
+    /**
+     * Method that leads to one or other window depends on what button you have clicked
+     *
+     * @param event - the one who has activate the Event
+     * @throws IOException
+     */
     @FXML
     private void switchWindow(Event event) throws IOException {
         String text = "";
         if (event.getSource() == playButton) {
-            System.out.println("hola amigo");
             text = "fxml/gamewindow/GameWindow";
         } else if (event.getSource() == startTutorialButton) {
-            System.out.println("adios");
             text = "fxml/tutorialwindow/originTutorialWindow";
         } else {
-            text = "";//En proceso
+            text = "";
         }
-        System.out.println(user);
         changeWindow(text);
     }
 
-
+    /**
+     * Method that change the window depends on what button was clicked
+     *
+     * @param text - String - is the URL where .fxml is located
+     * @throws IOException
+     */
     private void changeWindow(String text) throws IOException {
         if (text.equals("fxml/gamewindow/GameWindow")) {
             FXMLLoader fxmlLoader = App.setRoot(text);

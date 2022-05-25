@@ -16,7 +16,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-
+/**
+ * @Author: Pablo Salvador Del Río Vergara / Ismael Orellana Bello
+ * @Version: 1.0
+ * Class that controlls GameWindow.fxml
+ */
 @Getter
 @Setter
 public class GameWindowController {
@@ -38,12 +42,24 @@ public class GameWindowController {
     private int user_code;
     private String text;
 
-
+    /**
+     * Method that takes back to MainWindow.fxml
+     * @throws IOException - in case there is an error when loading the window
+     */
     @FXML
     public void goBackLoginMenu() throws IOException {
         App.setRoot("fxml/mainwindow/MainWindow");
     }
 
+    /**
+     * Method that execute the query that was written in GameWindow.fxml
+     * @return <ol>
+     *     <li>boolean true - when is correctly execute </li>
+     *     <li>boolean false - when can´t be executed due to an error</li>
+     * </ol>
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     @FXML
     public boolean executeQuery() throws SQLException, ClassNotFoundException {
 

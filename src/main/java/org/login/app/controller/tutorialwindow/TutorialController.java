@@ -16,6 +16,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * @Author: Pablo Salvador Del Río Vergara / Ismael Orellana Bello
+ * @Version: 1.0
+ * Class that controlls TutorialWindow.fxml
+ */
 
 public class TutorialController implements Initializable {
 
@@ -41,6 +46,12 @@ public class TutorialController implements Initializable {
     private int counter = 1;
     private ArrayList<String> infoRecover;
 
+    /**
+     * Method that switch the window, depends on the counter inside this class
+     *
+     * @param event - the one who has activate the Event
+     * @throws IOException
+     */
     @FXML
     public void switchWindow(Event event) throws IOException {
         if (event.getSource() == alreadyNow) {
@@ -50,6 +61,9 @@ public class TutorialController implements Initializable {
 
     }
 
+    /**
+     * Method that leads you to a website in case you don't know nothing about SQL
+     */
     @FXML
     public void getSqlTutorialLink() {
         try {
@@ -59,6 +73,13 @@ public class TutorialController implements Initializable {
         }
     }
 
+    /**
+     * Method that depends on the counter set one or other text to the window
+     *
+     * @param event - the one who has activate the Event
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     @FXML
     public void changeLabelText(Event event) throws SQLException, ClassNotFoundException {
         try {
@@ -72,6 +93,12 @@ public class TutorialController implements Initializable {
         }
     }
 
+    /**
+     * Method that initialize
+     *
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.infoRecover = new TutorialService().changeTipService();

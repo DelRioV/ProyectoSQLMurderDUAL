@@ -16,6 +16,11 @@ import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
+/**
+ * @Author: Pablo Salvador Del Río Vergara / Ismael Orellana Bello
+ * @Version: 1.0
+ * Class that controlls CompletingRegister.fxml
+ */
 public class RegisterSuccesfullyController {
 
     @FXML
@@ -29,20 +34,30 @@ public class RegisterSuccesfullyController {
     @Getter
     private Integer randomNumber;
 
-
+    /**
+     * Method that confirms that the inserted code and the confirm code are the same
+     *
+     * @throws IOException
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     @FXML
     private void registerSuccesfull() throws IOException, SQLException, ClassNotFoundException {
-        System.out.println(randomNumber);
-        if(confirmRegisterTextField.getText().equals(randomNumber.toString())){
+        if (confirmRegisterTextField.getText().equals(randomNumber.toString())) {
             insertUser();
             FXMLLoader fxmlLoader = App.setRoot("fxml/mainWindow/MainWindow");
-            MainWindowController mainWindowController =fxmlLoader.getController();
+            MainWindowController mainWindowController = fxmlLoader.getController();
             mainWindowController.setUser(credentials.get(1));
         }
     }
 
-    public void insertUser() throws SQLException{
+    /**
+     * Method that calls postRegister()
+     *
+     * @throws SQLException
+     */
+    public void insertUser() throws SQLException {
         new RegisterClient().postRegister(User.builder().username(credentials.get(1)).password(credentials.get(2)).email(credentials.get(0)).user_code(LocalDateTime.now().getNano()).build());
     }
-    
+
 }
