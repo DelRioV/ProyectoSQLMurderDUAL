@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.login.app.App;
 import org.login.app.controller.gamewindow.GameWindowController;
+import org.login.app.controller.tutorialwindow.TutorialController;
 
 import java.io.IOException;
 
@@ -62,8 +63,10 @@ public class MainWindowController {
             gameWindowController.setUser(user);
             gameWindowController.getUsername().setText(user);
             gameWindowController.getUsername().setVisible(true);
-        } else {
-            App.setRoot(text);
+        } else if(text.equals("fxml/tutorialwindow/originTutorialWindow")){
+           FXMLLoader fxmlLoader =  App.setRoot(text);
+           TutorialController tutorialController = fxmlLoader.getController();
+           tutorialController.setUser_code(user);
         }
     }
 
