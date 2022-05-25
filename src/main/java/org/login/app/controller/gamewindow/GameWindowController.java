@@ -45,7 +45,7 @@ public class GameWindowController {
     public void goBackLoginMenu() throws IOException {
         FXMLLoader fxmlLoader = App.setRoot("fxml/mainwindow/MainWindow");
         MainWindowController mainWindowController = fxmlLoader.getController();
-        mainWindowController.setUser(String.valueOf(user_code));
+        mainWindowController.setUser(String.valueOf(user));
     }
 
     @FXML
