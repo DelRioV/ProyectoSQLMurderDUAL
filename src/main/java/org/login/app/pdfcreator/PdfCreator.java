@@ -20,7 +20,6 @@ public class PdfCreator {
 
         Document document = new Document();
         PdfWriter pdfWriter = PdfWriter.getInstance(document, new FileOutputStream(fileName + ".pdf"));
-//        How to encrypt(1st way) before his creation
         pdfWriter.setEncryption(user.getBytes(), password.getBytes(), PdfWriter.ALLOW_PRINTING, PdfWriter.ENCRYPTION_AES_256);
 
         document.open();
