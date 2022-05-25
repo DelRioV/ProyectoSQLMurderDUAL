@@ -9,13 +9,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="619.0" prefWidth="405.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.login.app.controller.loginwindow.RegisterController">
+<AnchorPane prefHeight="619.0" prefWidth="405.0" style="-fx-background-color: #FEC8D8;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.login.app.controller.loginwindow.RegisterController">
    <children>
       <TextField fx:id="emailField" layoutX="128.0" layoutY="185.0" />
       <TextField fx:id="usernameField" layoutX="128.0" layoutY="258.0" />
       <PasswordField fx:id="passField" layoutX="128.0" layoutY="334.0" />
       <PasswordField fx:id="confirmPassField" layoutX="128.0" layoutY="418.0" />
-      <Button fx:id="registerButton" alignment="CENTER" layoutX="223.0" layoutY="475.0" mnemonicParsing="false" onAction="#registerClient" prefHeight="37.0" prefWidth="77.0" text="Register" />
+      <Button fx:id="registerButton" alignment="CENTER" layoutX="223.0" layoutY="475.0" mnemonicParsing="false" onAction="#registerClient" prefHeight="37.0" prefWidth="77.0" style="-fx-background-radius: 12%; -fx-border-radius: 12%; -fx-background-color: #000000;" text="Register" textFill="WHITE" />
       <ImageView fitHeight="80.0" fitWidth="236.0" layoutX="85.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@static.img/SQLIcon.png" />
@@ -36,12 +36,12 @@
             <Font size="18.0" />
          </font>
       </Label>
+      <Button fx:id="backButton" layoutX="111.0" layoutY="475.0" mnemonicParsing="false" onAction="#goBack" prefHeight="37.0" prefWidth="68.0" style="-fx-background-radius: 12%; -fx-border-radius: 12%; -fx-background-color: #000000;" text="Back" textFill="WHITE" />
       <Label alignment="CENTER" layoutX="129.0" layoutY="379.0" prefHeight="27.0" prefWidth="149.0" text="Confirm Password">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Button fx:id="backButton" layoutX="111.0" layoutY="475.0" mnemonicParsing="false" onAction="#goBack" prefHeight="37.0" prefWidth="68.0" text="Back" />
       <Label fx:id="errorLabel" alignment="CENTER" layoutX="102.0" layoutY="525.0" prefHeight="37.0" prefWidth="201.0" text="Fields can't be empty" visible="false">
          <font>
             <Font size="13.0" />

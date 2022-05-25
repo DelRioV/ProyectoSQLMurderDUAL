@@ -4,12 +4,19 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.login.app.controller.loginwindow.RegisterSuccesfullyController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FEC8D8;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.login.app.controller.loginwindow.RegisterSuccesfullyController">
    <children>
-      <TextField layoutX="226.0" layoutY="286.0" fx:id="confirmRegisterTextField"/>
-      <Label layoutX="100.0" layoutY="85.0" prefHeight="54.0" prefWidth="422.0" text="We have sent you an email with a verification code to activate your account" />
-      <Label layoutX="224.0" layoutY="207.0" text="Please, Insert here your code" />
-      <Button fx:id="confirmRegisterButton" layoutX="256.0" layoutY="339.0" mnemonicParsing="false" text="Confirm code" onAction="#registerSuccesfull"/>
+      <TextField fx:id="confirmRegisterTextField" layoutX="226.0" layoutY="252.0" />
+      <Label alignment="CENTER" layoutX="25.0" layoutY="76.0" prefHeight="93.0" prefWidth="575.0" text="We have sent you an email with a verification code to activate your account">
+         <font>
+            <Font name="Berlin Sans FB" size="17.0" />
+         </font></Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="175.0" layoutY="169.0" prefHeight="83.0" prefWidth="250.0" text="Please, Insert here your code">
+         <font>
+            <Font name="Berlin Sans FB" size="19.0" />
+         </font></Label>
+      <Button fx:id="confirmRegisterButton" layoutX="243.0" layoutY="301.0" mnemonicParsing="false" onAction="#registerSuccesfull" prefHeight="48.0" prefWidth="114.0" style="-fx-background-color: #000000; -fx-border-radius: 25%; -fx-background-radius: 25%;" text="Confirm code" textFill="WHITE" />
    </children>
 </AnchorPane>
