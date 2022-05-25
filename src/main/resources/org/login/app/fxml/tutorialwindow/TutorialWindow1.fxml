@@ -5,13 +5,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.login.app.controller.tutorialwindow.TutorialController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #AED6F1;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.login.app.controller.tutorialwindow.TutorialController">
    <children>
-      <Button fx:id="sqlTutorial" layoutX="94.0" layoutY="245.0" mnemonicParsing="false" onAction="#getSqlTutorialLink" prefHeight="66.0" prefWidth="135.0" text="Sql Tutorial" />
-      <Button fx:id="alreadyNow" layoutX="361.0" layoutY="245.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="135.0" text="I Already now" onAction="#switchWindow"/>
+      <Button fx:id="sqlTutorial" layoutX="105.0" layoutY="245.0" mnemonicParsing="false" onAction="#getSqlTutorialLink" prefHeight="66.0" prefWidth="135.0" style="-fx-background-color: #EAF2E3; -fx-border-radius: 12%; -fx-background-radius: 12%;" text="Sql Tutorial" />
+      <Button fx:id="alreadyNow" layoutX="361.0" layoutY="245.0" mnemonicParsing="false" onAction="#switchWindow" prefHeight="66.0" prefWidth="135.0" style="-fx-background-color: #EAF2E3; -fx-background-radius: 12%; -fx-border-radius: 12%;" text="I Already now" />
       <Label alignment="CENTER" layoutX="137.0" layoutY="90.0" prefHeight="50.0" prefWidth="327.0" text="New in Sql?">
          <font>
-            <Font size="34.0" />
+            <Font name="Berlin Sans FB" size="34.0" />
          </font>
       </Label>
    </children>

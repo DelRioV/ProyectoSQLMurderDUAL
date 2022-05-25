@@ -20,7 +20,7 @@ public class App extends Application {
         this.stage = stage;
         scene = new Scene(loadFXML("fxml/loginwindow/LoginWindow").load());
         stage.setScene(scene);
-        stage.setTitle("Inicio");
+        stage.setTitle("SQLMURDER");
         stage.show();
     }
 

@@ -5,14 +5,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.login.app.controller.tutorialwindow.TutorialController">
+<AnchorPane prefHeight="456.0" prefWidth="673.0" style="-fx-background-color: #AED6F1;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.login.app.controller.tutorialwindow.TutorialController">
 
    <children>
-      <Button fx:id="previousButton" layoutX="100.0" layoutY="259.0" mnemonicParsing="false" onAction="#changeLabelText" prefHeight="57.0" prefWidth="121.0" text="Previous tip" />
-      <Button fx:id="nextButton" layoutX="386.0" layoutY="259.0" mnemonicParsing="false" onAction="#changeLabelText" prefHeight="57.0" prefWidth="121.0" text="Next tip" />
-      <Label fx:id="editableLabel" layoutX="63.0" layoutY="57.0" prefHeight="183.0" prefWidth="462.0" text="First Tip">
+      <Button fx:id="previousButton" layoutX="116.0" layoutY="288.0" mnemonicParsing="false" onAction="#changeLabelText" prefHeight="57.0" prefWidth="121.0" style="-fx-background-color: #EAF2E3; -fx-background-radius: 12%; -fx-border-radius: 12%;" text="Previous tip" />
+      <Button fx:id="nextButton" layoutX="449.0" layoutY="288.0" mnemonicParsing="false" onAction="#changeLabelText" prefHeight="57.0" prefWidth="121.0" style="-fx-background-color: #EAF2E3; -fx-background-radius: 12%; -fx-border-radius: 12%; -fx-border-width: 3px;" text="Next tip" />
+      <Label fx:id="editableLabel" alignment="CENTER" layoutX="63.0" layoutY="57.0" prefHeight="183.0" prefWidth="550.0" text="Welcome to the sql murder game!">
          <font>
-            <Font size="17.0" />
+            <Font name="Berlin Sans FB" size="17.0" />
          </font>
       </Label>
    </children>
