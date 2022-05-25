@@ -9,7 +9,6 @@
 <AnchorPane fx:id="pane" minHeight="453.0" minWidth="620.0" prefHeight="527.0" prefWidth="743.0" style="-fx-background-color: #c70038;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.login.app.controller.gamewindow.GameWindowController">
     <children>
         <Button fx:id="goBack" layoutX="40.0" layoutY="442.0" mnemonicParsing="false" onAction="#goBackLoginMenu" prefHeight="49.0" prefWidth="144.0" style="-fx-background-radius: 33%; -fx-border-radius: 33%;" text="&lt;--" />
-        <Button fx:id="executeButton" layoutX="558.0" layoutY="74.0" mnemonicParsing="false" onAction="#executeQuery" prefHeight="49.0" prefWidth="112.0" style="-fx-border-radius: 33%; -fx-background-radius: 33%;" text="Execute" />
 
         <TextArea fx:id="inputQuery" layoutX="81.0" layoutY="52.0" prefHeight="93.0" prefWidth="421.0" />
       <Label fx:id="errorLabel" alignment="CENTER" layoutX="82.0" layoutY="155.0" prefHeight="25.0" prefWidth="500.0" text="Label" visible="false">
@@ -27,5 +26,6 @@
             <Font size="22.0" />
          </font>
       </Label>
+      <Button fx:id="solutionButton" layoutX="310.0" layoutY="442.0" mnemonicParsing="false" onAction="#goSolutionWindow" prefHeight="49.0" prefWidth="144.0" style="-fx-background-radius: 33%; -fx-border-radius: 33%;" text="Insert Solution" />
     </children>
 </AnchorPane>

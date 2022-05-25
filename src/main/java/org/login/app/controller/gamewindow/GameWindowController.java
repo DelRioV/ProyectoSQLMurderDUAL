@@ -85,6 +85,14 @@ public class GameWindowController {
             return false;
         }
     }
+
+    @FXML
+    public void goSolutionWindow() throws IOException{
+        FXMLLoader fxmlLoader = App.setRoot("fxml/gamewindow/GameWindowSolution");
+        GameWindowSolutionController gameWindowSolutionController = fxmlLoader.getController();
+        gameWindowSolutionController.setUser_code(user_code);
+        gameWindowSolutionController.setUsername(username.getText());
+    }
 }
 
 

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="530.0" prefWidth="736.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.login.app.controller.gamewindow.GameWindowSolutionController">
+   <children>
+      <Button layoutX="307.0" layoutY="377.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="122.0" text="Check Solution" onAction="#checkSolution"/>
+      <TextField fx:id="solutionField" layoutX="241.0" layoutY="313.0" prefHeight="37.0" prefWidth="268.0" />
+      <ImageView fitHeight="117.0" fitWidth="458.0" layoutX="140.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@static/img/text.gif" />
+         </image>
+      </ImageView>
+      <Button layoutX="38.0" layoutY="433.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="77.0" text="&lt;--" onAction="#goBack"/>
+      <Label alignment="CENTER" layoutX="23.0" layoutY="236.0" prefHeight="59.0" prefWidth="704.0" text="Insert here the murder name, remember you only have one attemp!">
+         <font>
+            <Font name="Berlin Sans FB" size="25.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
