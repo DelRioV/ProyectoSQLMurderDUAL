@@ -44,6 +44,7 @@ public class GameWindowController {
     private Label errorLabel;
     private String user;
     private int user_code;
+
     private String text;
 
     /**

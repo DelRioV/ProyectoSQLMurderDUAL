@@ -25,6 +25,7 @@ public class MainWindowController {
     @Setter
     private String user;
 
+    private int user_code;
     @FXML
     private Button playButton;
 
