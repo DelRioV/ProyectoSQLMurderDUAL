@@ -25,7 +25,6 @@ public class MainWindowController {
     @Setter
     private String user;
 
-    private int user_code;
     @FXML
     private Button playButton;
 
@@ -67,7 +66,7 @@ public class MainWindowController {
         } else if(text.equals("fxml/tutorialwindow/originTutorialWindow")){
            FXMLLoader fxmlLoader =  App.setRoot(text);
            TutorialController tutorialController = fxmlLoader.getController();
-           tutorialController.setUser_code(Integer.parseInt(user));
+           tutorialController.setUsername(user);
         }
     }
 

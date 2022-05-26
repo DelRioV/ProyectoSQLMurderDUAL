@@ -45,6 +45,7 @@ public class App extends Application {
         FXMLLoader fxmlLoader = loadFXML(fxml);
         stage.hide();
         scene.setRoot(fxmlLoader.load());
+        stage.setResizable(false);
         stage.show();
         return fxmlLoader;
     }

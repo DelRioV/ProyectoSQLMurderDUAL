@@ -30,8 +30,8 @@
    <PasswordField fx:id="passwordField" layoutX="148.0" layoutY="336.0" />
    <Button fx:id="loginButton" layoutX="182.0" layoutY="389.0" mnemonicParsing="false" onAction="#loginToTheApp" prefHeight="25.0" prefWidth="76.0" style="-fx-background-color: #EAF2E3;" text="Login" />
    <Hyperlink layoutX="164.0" layoutY="431.0" onAction="#notRegister" text="New in Sql Murder?" />
-   <Label fx:id="errorMessage" alignment="CENTER" layoutX="121.0" layoutY="463.0" prefHeight="34.0" prefWidth="204.0" text="Username or password are incorrect" visible="false">
+   <Label fx:id="errorMessage" alignment="CENTER" layoutX="39.0" layoutY="463.0" prefHeight="34.0" prefWidth="382.0" text="Username or password are incorrect" visible="false">
       <font>
-         <Font size="14.0" />
+         <Font size="13.0" />
       </font></Label>
 </AnchorPane>
